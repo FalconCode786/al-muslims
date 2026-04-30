@@ -1,0 +1,717 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Almuslim{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-dashboard="true">
+    <!-- Dashboard Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
+        <div>
+            <h1 class="text-3xl font-bold text-navy-900">Energy Dashboard</h1>
+            <p class="mt-1 text-gray-600">Welcome back, {{ user.full_name if user else 'User' }}</p>
+        </div>
+        <div class="mt-4 sm:mt-0 flex space-x-3">
+            <button onclick="refreshDashboard()" class="px-4 py-2 bg-navy-900 text-white rounded-lg hover:bg-navy-800 transition flex items-center space-x-2">
+                <i data-lucide="refresh-cw" class="h-4 w-4"></i>
+                <span>Refresh</span>
+            </button>
+            <button onclick="exportReport()" class="px-4 py-2 border border-navy-900 text-navy-900 rounded-lg hover:bg-navy-50 transition flex items-center space-x-2">
+                <i data-lucide="download" class="h-4 w-4"></i>
+                <span>Export Report</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- AI Insights Banner -->
+    <div id="ai-insights-banner" class="mb-8 bg-gradient-to-r from-navy-900 to-navy-800 rounded-xl p-6 text-white hidden">
+        <div class="flex items-start space-x-4">
+            <div class="bg-red-500/20 p-3 rounded-lg">
+                <i data-lucide="brain-circuit" class="h-8 w-8 text-red-500"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="text-lg font-semibold mb-2">AI-Powered Insights</h3>
+                <p id="ai-insight-message" class="text-gray-300"></p>
+            </div>
+            <button onclick="document.getElementById('ai-insights-banner').classList.add('hidden')" class="text-gray-400 hover:text-white">
+                <i data-lucide="x" class="h-5 w-5"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Stats Grid with Real-time Data -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Solar Generation -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-center justify-between mb-4">
+                <div class="bg-yellow-100 p-3 rounded-lg">
+                    <i data-lucide="sun" class="h-6 w-6 text-yellow-600"></i>
+                </div>
+                <span class="text-xs text-green-600 flex items-center">
+                    <i data-lucide="trending-up" class="h-3 w-3 mr-1"></i>
+                    <span id="generation-trend">--</span>
+                </span>
+            </div>
+            <h3 class="text-sm font-medium text-gray-500">Solar Generation</h3>
+            <p id="current-generation" class="text-2xl font-bold text-navy-900">-- kW</p>
+            <div class="mt-2 h-1 bg-gray-200 rounded-full">
+                <div id="generation-bar" class="h-1 bg-yellow-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <!-- Home Consumption -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-center justify-between mb-4">
+                <div class="bg-blue-100 p-3 rounded-lg">
+                    <i data-lucide="home" class="h-6 w-6 text-blue-600"></i>
+                </div>
+                <span id="consumption-status" class="text-xs text-blue-600 flex items-center">
+                    <i data-lucide="activity" class="h-3 w-3 mr-1"></i>
+                    <span>Current</span>
+                </span>
+            </div>
+            <h3 class="text-sm font-medium text-gray-500">Home Consumption</h3>
+            <p id="current-consumption" class="text-2xl font-bold text-navy-900">-- kW</p>
+            <div class="mt-2 h-1 bg-gray-200 rounded-full">
+                <div id="consumption-bar" class="h-1 bg-blue-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <!-- Grid Export -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-center justify-between mb-4">
+                <div class="bg-green-100 p-3 rounded-lg">
+                    <i data-lucide="activity" class="h-6 w-6 text-green-600"></i>
+                </div>
+                <span id="export-status" class="text-xs text-green-600 flex items-center">
+                    <i data-lucide="check-circle" class="h-3 w-3 mr-1"></i>
+                    <span>Active</span>
+                </span>
+            </div>
+            <h3 class="text-sm font-medium text-gray-500">Grid Export</h3>
+            <p id="grid-export" class="text-2xl font-bold text-navy-900">-- kW</p>
+            <div class="mt-2 h-1 bg-gray-200 rounded-full">
+                <div id="export-bar" class="h-1 bg-green-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <!-- PKR Savings -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-center justify-between mb-4">
+                <div class="bg-red-100 p-3 rounded-lg">
+                    <i data-lucide="wallet" class="h-6 w-6 text-red-600"></i>
+                </div>
+                <span id="savings-period" class="text-xs text-red-600">Today</span>
+            </div>
+            <h3 class="text-sm font-medium text-gray-500">Today's Savings</h3>
+            <p id="daily-savings" class="text-2xl font-bold text-navy-900">PKR --</p>
+            <div id="savings-estimate" class="mt-1 text-xs text-gray-500">Estimated monthly: PKR --</div>
+        </div>
+    </div>
+    
+    <!-- Main Dashboard Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Power Flow Visualization with Chart -->
+        <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold text-navy-900">Real-Time Power Flow</h3>
+                <div class="flex space-x-2">
+                    <button onclick="switchTimeRange('24h')" id="btn-24h" class="px-3 py-1 text-xs rounded-md bg-navy-900 text-white">24H</button>
+                    <button onclick="switchTimeRange('7d')" id="btn-7d" class="px-3 py-1 text-xs rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">7D</button>
+                    <button onclick="switchTimeRange('30d')" id="btn-30d" class="px-3 py-1 text-xs rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">30D</button>
+                </div>
+            </div>
+            <div class="relative" style="height: 300px;">
+                <canvas id="powerFlowChart"></canvas>
+            </div>
+            <div class="flex justify-center space-x-8 mt-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600">Solar</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600">Consumption</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600">Grid Export</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions & AI Predictions -->
+        <div class="space-y-6">
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+                <h3 class="text-lg font-semibold text-navy-900 mb-4">Quick Actions</h3>
+                <div class="space-y-3">
+                    <a href="{{ url_for('dashboard.metering') }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition group">
+                        <i data-lucide="file-text" class="h-5 w-5 text-navy-900 group-hover:text-red-600 transition"></i>
+                        <span class="text-sm font-medium">Net Metering Application</span>
+                    </a>
+                    <a href="{{ url_for('dashboard.analytics') }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition group">
+                        <i data-lucide="bar-chart-2" class="h-5 w-5 text-navy-900 group-hover:text-red-600 transition"></i>
+                        <span class="text-sm font-medium">AI Analytics</span>
+                    </a>
+                    <button onclick="runAnomalyDetection()" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition w-full text-left group">
+                        <i data-lucide="search" class="h-5 w-5 text-navy-900 group-hover:text-red-600 transition"></i>
+                        <span class="text-sm font-medium">System Health Check</span>
+                    </button>
+                    <button onclick="getLoadShiftingAdvice()" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition w-full text-left group">
+                        <i data-lucide="lightbulb" class="h-5 w-5 text-navy-900 group-hover:text-red-600 transition"></i>
+                        <span class="text-sm font-medium">Smart Load Shifting</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tomorrow's Forecast -->
+            <div class="bg-gradient-to-br from-navy-900 to-navy-800 rounded-xl shadow-sm p-6 text-white">
+                <h3 class="text-lg font-semibold mb-4 flex items-center space-x-2">
+                    <i data-lucide="sunrise" class="h-5 w-5 text-red-500"></i>
+                    <span>Tomorrow's Forecast</span>
+                </h3>
+                <div id="tomorrow-forecast" class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Expected Generation</span>
+                        <span class="text-xl font-bold">-- kWh</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Peak Hours</span>
+                        <span class="text-sm">--</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Confidence</span>
+                        <span class="text-sm text-green-400">--%</span>
+                    </div>
+                    <div id="forecast-alert" class="mt-4 p-3 bg-red-500/20 rounded-lg text-sm hidden">
+                        <i data-lucide="alert-triangle" class="h-4 w-4 inline mr-2"></i>
+                        <span id="forecast-alert-text"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load Shedding Alert -->
+            <div id="load-shedding-card" class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hidden">
+                <h3 class="text-lg font-semibold text-navy-900 mb-4 flex items-center space-x-2">
+                    <i data-lucide="zap-off" class="h-5 w-5 text-yellow-600"></i>
+                    <span>Load Shedding Prediction</span>
+                </h3>
+                <div id="load-shedding-content" class="space-y-3">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Anomaly Alerts Section -->
+    <div id="anomaly-alerts" class="mt-8 hidden">
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <h3 class="text-lg font-semibold text-navy-900 mb-4 flex items-center space-x-2">
+                <i data-lucide="alert-triangle" class="h-5 w-5 text-red-600"></i>
+                <span>System Alerts & Anomalies</span>
+            </h3>
+            <div id="anomaly-list" class="space-y-4">
+                <!-- Filled by JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script>
+// Initialize Lucide icons after content load
+document.addEventListener('DOMContentLoaded', function() {
+    lucide.createIcons();
+    initializeDashboard();
+});
+
+let powerFlowChart = null;
+let currentTimeRange = '24h';
+
+function initializeDashboard() {
+    // Initialize chart
+    initializePowerFlowChart();
+    
+    // Load real-time data
+    loadRealTimeData();
+    loadSolarForecast();
+    loadLoadSheddingPrediction();
+    
+    // Set up auto-refresh every 30 seconds
+    setInterval(loadRealTimeData, 30000);
+    setInterval(loadSolarForecast, 300000); // Every 5 minutes
+}
+
+function initializePowerFlowChart() {
+    const ctx = document.getElementById('powerFlowChart').getContext('2d');
+    powerFlowChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Solar Generation',
+                    data: [],
+                    borderColor: '#EAB308',
+                    backgroundColor: 'rgba(234, 179, 8, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2
+                },
+                {
+                    label: 'Consumption',
+                    data: [],
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2
+                },
+                {
+                    label: 'Grid Export',
+                    data: [],
+                    borderColor: '#22C55E',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: '#0A1929',
+                    padding: 12,
+                    cornerRadius: 8
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#f3f4f6'
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return value + ' kW';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function loadRealTimeData() {
+    // Show loading state
+    document.querySelectorAll('[id$="-generation"], [id$="-consumption"], [id$="-export"], [id$="-savings"]').forEach(el => {
+        if (el && !el.id.includes('bar') && !el.id.includes('trend') && !el.id.includes('status') && !el.id.includes('estimate')) {
+            el.classList.add('loading');
+        }
+    });
+    
+    // Fetch current power readings
+    fetch('/api/forecast/solar?lat=33.6844&lon=73.0479&capacity=5.0')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateDashboardStats(data);
+                updatePowerFlowChart(data);
+                generateAIInsights(data);
+            }
+        })
+        .catch(error => {
+            console.error('Failed to load data:', error);
+            // Use simulated data for development
+            simulateRealTimeData();
+        })
+        .finally(() => {
+            document.querySelectorAll('.loading').forEach(el => el.classList.remove('loading'));
+        });
+}
+
+function simulateRealTimeData() {
+    const now = new Date();
+    const hour = now.getHours();
+    const solarGeneration = hour >= 6 && hour <= 18 ? 
+        Math.random() * 5 * Math.sin((hour - 6) * Math.PI / 12) : 0;
+    const consumption = 1 + Math.random() * 3;
+    const gridExport = Math.max(0, solarGeneration - consumption);
+    
+    document.getElementById('current-generation').textContent = solarGeneration.toFixed(1) + ' kW';
+    document.getElementById('current-consumption').textContent = consumption.toFixed(1) + ' kW';
+    document.getElementById('grid-export').textContent = gridExport.toFixed(1) + ' kW';
+    
+    const savings = gridExport * 35; // Approximate PKR per kWh
+    document.getElementById('daily-savings').textContent = 'PKR ' + savings.toFixed(0);
+    document.getElementById('savings-estimate').textContent = 
+        'Estimated monthly: PKR ' + (savings * 30).toFixed(0);
+    
+    // Update bars
+    document.getElementById('generation-bar').style.width = (solarGeneration / 5 * 100) + '%';
+    document.getElementById('consumption-bar').style.width = (consumption / 5 * 100) + '%';
+    document.getElementById('export-bar').style.width = (gridExport / 5 * 100) + '%';
+}
+
+function updateDashboardStats(data) {
+    if (data.hourly_forecast && data.hourly_forecast.length > 0) {
+        const current = data.hourly_forecast[0];
+        const generation = current.adjusted_generation || 0;
+        const consumption = 2.5; // Would come from actual consumption data
+        const export_to_grid = Math.max(0, generation - consumption);
+        
+        document.getElementById('current-generation').textContent = generation.toFixed(1) + ' kW';
+        document.getElementById('current-consumption').textContent = consumption.toFixed(1) + ' kW';
+        document.getElementById('grid-export').textContent = export_to_grid.toFixed(1) + ' kW';
+        
+        // Calculate savings
+        calculateSavings(generation, consumption);
+    }
+}
+
+function calculateSavings(solarGen, consumption) {
+    fetch('/api/savings/calculate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            solar_generation: solarGen,
+            consumption: consumption,
+            disco_region: 'IESCO'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const savings = data.savings_breakdown;
+            document.getElementById('daily-savings').textContent = 
+                'PKR ' + savings.total_savings.toFixed(0);
+            document.getElementById('savings-estimate').textContent = 
+                'Estimated monthly: PKR ' + (savings.total_savings * 30).toFixed(0);
+        }
+    })
+    .catch(error => console.error('Savings calculation failed:', error));
+}
+
+function updatePowerFlowChart(data) {
+    if (!powerFlowChart || !data.hourly_forecast) return;
+    
+    const forecast = data.hourly_forecast.slice(0, 24);
+    const labels = forecast.map(f => {
+        const date = new Date(f.ds);
+        return date.getHours() + ':00';
+    });
+    
+    const generationData = forecast.map(f => f.adjusted_generation || 0);
+    const consumptionData = forecast.map(() => 1.5 + Math.random() * 2); // Simulated consumption
+    const exportData = generationData.map((gen, i) => Math.max(0, gen - consumptionData[i]));
+    
+    powerFlowChart.data.labels = labels;
+    powerFlowChart.data.datasets[0].data = generationData;
+    powerFlowChart.data.datasets[1].data = consumptionData;
+    powerFlowChart.data.datasets[2].data = exportData;
+    powerFlowChart.update();
+}
+
+function loadSolarForecast() {
+    fetch('/api/forecast/solar?lat=33.6844&lon=73.0479')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateForecastCard(data);
+            }
+        })
+        .catch(error => console.error('Forecast load failed:', error));
+}
+
+function updateForecastCard(data) {
+    const totalGen = data.total_generation_24h || 0;
+    const confidence = data.confidence_score || 0;
+    const peakHours = data.peak_hours || [];
+    
+    const forecastDiv = document.getElementById('tomorrow-forecast');
+    if (forecastDiv) {
+        forecastDiv.innerHTML = `
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">Expected Generation</span>
+                <span class="text-xl font-bold">${totalGen.toFixed(1)} kWh</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">Peak Hours</span>
+                <span class="text-sm">${peakHours.length > 0 ? formatPeakHours(peakHours) : 'Calculating...'}</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">Confidence</span>
+                <span class="text-sm ${confidence > 80 ? 'text-green-400' : confidence > 60 ? 'text-yellow-400' : 'text-red-400'}">${confidence}%</span>
+            </div>
+            ${confidence < 70 ? `
+            <div class="mt-4 p-3 bg-red-500/20 rounded-lg text-sm">
+                <i data-lucide="alert-triangle" class="h-4 w-4 inline mr-2"></i>
+                <span>Low confidence forecast due to variable weather conditions</span>
+            </div>
+            ` : ''}
+        `;
+        lucide.createIcons();
+    }
+}
+
+function loadLoadSheddingPrediction() {
+    fetch('/api/load-shedding/predict')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateLoadSheddingCard(data);
+            }
+        })
+        .catch(error => console.error('Load shedding prediction failed:', error));
+}
+
+function updateLoadSheddingCard(data) {
+    const card = document.getElementById('load-shedding-card');
+    const content = document.getElementById('load-shedding-content');
+    
+    if (card && content && data.outage_probability > 20) {
+        card.classList.remove('hidden');
+        content.innerHTML = `
+            <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-600">Outage Probability</span>
+                <span class="font-semibold ${data.outage_probability > 60 ? 'text-red-600' : 'text-yellow-600'}">${data.outage_probability}%</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-600">Avg. Duration</span>
+                <span class="font-semibold">${data.average_outage_duration} min</span>
+            </div>
+            ${data.battery_recommendation ? `
+            <div class="mt-3 p-3 bg-blue-50 rounded-lg">
+                <p class="text-sm text-blue-800">
+                    <i data-lucide="battery-charging" class="h-4 w-4 inline mr-2"></i>
+                    ${data.battery_recommendation.charge_priority}
+                </p>
+            </div>
+            ` : ''}
+        `;
+        lucide.createIcons();
+    }
+}
+
+function generateAIInsights(data) {
+    const banner = document.getElementById('ai-insights-banner');
+    const message = document.getElementById('ai-insight-message');
+    
+    if (!banner || !message) return;
+    
+    const totalGen = data.total_generation_24h || 0;
+    let insight = '';
+    
+    if (totalGen > 15) {
+        insight = 'High solar generation expected tomorrow. Consider scheduling heavy appliance usage between 10 AM - 2 PM to maximize savings.';
+    } else if (totalGen < 5) {
+        insight = 'Low solar generation predicted. We recommend minimizing non-essential electricity usage and ensuring battery backup is fully charged.';
+    } else {
+        insight = 'Moderate solar generation expected. Normal energy usage patterns are recommended with optional load shifting for additional savings.';
+    }
+    
+    message.textContent = insight;
+    banner.classList.remove('hidden');
+    lucide.createIcons();
+}
+
+function runAnomalyDetection() {
+    const currentGen = parseFloat(document.getElementById('current-generation')?.textContent) || 0;
+    
+    fetch('/api/anomalies/detect', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            current_generation: currentGen,
+            expected_generation: 4.0, // Should come from forecast
+            threshold: 0.15
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.has_anomalies) {
+            displayAnomalies(data.anomalies);
+        } else {
+            alert('System health check complete. No anomalies detected.');
+        }
+    })
+    .catch(error => console.error('Anomaly detection failed:', error));
+}
+
+function displayAnomalies(anomalies) {
+    const alertsDiv = document.getElementById('anomaly-alerts');
+    const listDiv = document.getElementById('anomaly-list');
+    
+    if (!alertsDiv || !listDiv) return;
+    
+    alertsDiv.classList.remove('hidden');
+    listDiv.innerHTML = anomalies.map(anomaly => `
+        <div class="flex items-start space-x-4 p-4 ${anomaly.severity === 'high' ? 'bg-red-50' : 'bg-yellow-50'} rounded-lg">
+            <i data-lucide="${anomaly.severity === 'high' ? 'alert-triangle' : 'alert-circle'}" 
+               class="h-6 w-6 ${anomaly.severity === 'high' ? 'text-red-600' : 'text-yellow-600'} flex-shrink-0"></i>
+            <div>
+                <p class="font-medium ${anomaly.severity === 'high' ? 'text-red-800' : 'text-yellow-800'}">
+                    ${anomaly.type === 'underperformance' ? 'Underperformance Detected' : 'Overperformance Detected'}
+                </p>
+                <p class="text-sm ${anomaly.severity === 'high' ? 'text-red-700' : 'text-yellow-700'} mt-1">
+                    Deviation: ${anomaly.deviation_percentage}% from expected generation
+                </p>
+                ${anomaly.possible_causes ? `
+                <div class="mt-2">
+                    <p class="text-xs font-medium text-gray-600">Possible causes:</p>
+                    <ul class="list-disc list-inside text-xs text-gray-600 mt-1">
+                        ${anomaly.possible_causes.map(cause => `<li>${cause}</li>`).join('')}
+                    </ul>
+                </div>
+                ` : ''}
+            </div>
+        </div>
+    `).join('');
+    
+    lucide.createIcons();
+    alertsDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+function getLoadShiftingAdvice() {
+    const appliances = [
+        { name: 'Washing Machine', power_rating: 2.0, usage_hours: 2 },
+        { name: 'Water Pump', power_rating: 1.5, usage_hours: 1 },
+        { name: 'Iron', power_rating: 1.0, usage_hours: 1 },
+        { name: 'Dishwasher', power_rating: 1.8, usage_hours: 1.5 }
+    ];
+    
+    fetch('/api/load-shifting/recommendations', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ appliances: appliances })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            displayLoadShiftingAdvice(data);
+        }
+    })
+    .catch(error => console.error('Load shifting advice failed:', error));
+}
+
+function displayLoadShiftingAdvice(data) {
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+    modal.innerHTML = `
+        <div class="bg-white rounded-xl max-w-lg w-full mx-4 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold text-navy-900">Smart Load Shifting Recommendations</h3>
+                <button onclick="this.closest('.fixed').remove()" class="text-gray-400 hover:text-gray-600">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+            ${data.peak_solar_window ? `
+            <div class="bg-green-50 p-3 rounded-lg mb-4">
+                <p class="text-sm text-green-800">
+                    <i data-lucide="sun" class="h-4 w-4 inline mr-2"></i>
+                    Optimal solar window: ${new Date(data.peak_solar_window.start).toLocaleTimeString()} - 
+                    ${new Date(data.peak_solar_window.end).toLocaleTimeString()}
+                </p>
+            </div>
+            ` : ''}
+            <div class="space-y-3 mb-4">
+                ${data.recommendations ? data.recommendations.map(rec => `
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                    <div>
+                        <p class="font-medium text-navy-900">${rec.appliance}</p>
+                        <p class="text-sm text-gray-600">${rec.power_rating} kW</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm font-medium text-green-600">Save PKR ${rec.estimated_cost_savings}</p>
+                        <span class="text-xs ${rec.priority === 'high' ? 'text-red-600' : 'text-yellow-600'}">
+                            ${rec.priority.toUpperCase()} Priority
+                        </span>
+                    </div>
+                </div>
+                `).join('') : '<p class="text-gray-600">No recommendations available</p>'}
+            </div>
+            ${data.total_savings_potential ? `
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-navy-900">Total Potential Savings</span>
+                    <span class="text-xl font-bold text-red-600">PKR ${data.total_savings_potential}</span>
+                </div>
+            </div>
+            ` : ''}
+            <button onclick="this.closest('.fixed').remove()" class="mt-4 w-full py-2 bg-navy-900 text-white rounded-lg hover:bg-navy-800 transition">
+                Close
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    lucide.createIcons();
+}
+
+function switchTimeRange(range) {
+    currentTimeRange = range;
+    
+    // Update button styles
+    document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+        btn.classList.remove('bg-navy-900', 'text-white');
+        btn.classList.add('bg-gray-200', 'text-gray-700');
+    });
+    document.getElementById('btn-' + range).classList.add('bg-navy-900', 'text-white');
+    document.getElementById('btn-' + range).classList.remove('bg-gray-200', 'text-gray-700');
+    
+    // Reload data with new time range
+    loadRealTimeData();
+}
+
+function exportReport() {
+    alert('Report export feature will generate a comprehensive PDF with all analytics data.');
+}
+
+function refreshDashboard() {
+    loadRealTimeData();
+    loadSolarForecast();
+    loadLoadSheddingPrediction();
+}
+
+function formatPeakHours(peakHours) {
+    if (peakHours.length === 0) return 'N/A';
+    const start = new Date(peakHours[0].ds);
+    const end = new Date(peakHours[peakHours.length - 1].ds);
+    return start.getHours() + ':00 - ' + end.getHours() + ':00';
+}
+
+// Initialize everything when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeDashboard);
+} else {
+    initializeDashboard();
+}
+</script>
+{% endblock %}

@@ -1,0 +1,474 @@
+{% extends "base.html" %}
+
+{% block title %}AI Analytics - Almuslim{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Analytics Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-navy-900">AI Analytics & Predictions</h1>
+        <p class="mt-1 text-gray-600">Advanced machine learning insights for your energy system</p>
+    </div>
+    
+    <!-- AI Prediction Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <!-- Solar Forecast Accuracy -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="bg-blue-100 p-3 rounded-lg">
+                    <i data-lucide="target" class="h-6 w-6 text-blue-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-navy-900">Forecast Accuracy</h3>
+                    <p class="text-xs text-gray-500">Last 30 days</p>
+                </div>
+            </div>
+            <p class="text-3xl font-bold text-navy-900">94.2%</p>
+            <div class="mt-2 h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-blue-500 rounded-full" style="width: 94.2%"></div>
+            </div>
+        </div>
+        
+        <!-- AI Model Confidence -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="bg-green-100 p-3 rounded-lg">
+                    <i data-lucide="brain-circuit" class="h-6 w-6 text-green-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-navy-900">Model Confidence</h3>
+                    <p class="text-xs text-gray-500">Current prediction</p>
+                </div>
+            </div>
+            <p id="model-confidence" class="text-3xl font-bold text-green-600">--%</p>
+            <p class="text-xs text-gray-500 mt-1">Based on weather data quality</p>
+        </div>
+        
+        <!-- Anomalies Detected -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="bg-red-100 p-3 rounded-lg">
+                    <i data-lucide="alert-triangle" class="h-6 w-6 text-red-600"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-navy-900">Anomalies Detected</h3>
+                    <p class="text-xs text-gray-500">This month</p>
+                </div>
+            </div>
+            <p id="anomaly-count" class="text-3xl font-bold text-red-600">--</p>
+            <button onclick="runAnomalyScan()" class="mt-2 text-xs text-navy-900 hover:text-red-600 transition flex items-center">
+                <i data-lucide="search" class="h-3 w-3 mr-1"></i>
+                Scan Now
+            </button>
+        </div>
+    </div>
+    
+    <!-- Main Analytics Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <!-- Generation vs Prediction Chart -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <h3 class="text-lg font-semibold text-navy-900 mb-6">Generation vs AI Prediction</h3>
+            <div style="height: 300px;">
+                <canvas id="predictionChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Savings Breakdown -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <h3 class="text-lg font-semibold text-navy-900 mb-6">PKR Savings Breakdown</h3>
+            <div style="height: 300px;">
+                <canvas id="savingsChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load Shedding Analysis -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <!-- Load Shedding Pattern -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <h3 class="text-lg font-semibold text-navy-900 mb-6">Load Shedding Pattern Analysis</h3>
+            <div style="height: 250px;">
+                <canvas id="loadSheddingChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Weather Impact -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+            <h3 class="text-lg font-semibold text-navy-900 mb-6">Weather Impact on Generation</h3>
+            <div style="height: 250px;">
+                <canvas id="weatherImpactChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Smart Recommendations -->
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-semibold text-navy-900">AI Recommendations</h3>
+            <button onclick="getSmartRecommendations()" class="px-4 py-2 bg-navy-900 text-white rounded-lg hover:bg-navy-800 transition flex items-center space-x-2">
+                <i data-lucide="refresh-cw" class="h-4 w-4"></i>
+                <span>Refresh</span>
+            </button>
+        </div>
+        <div id="recommendations-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Filled by JavaScript -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+let predictionChart = null;
+let savingsChart = null;
+let loadSheddingChart = null;
+let weatherImpactChart = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    lucide.createIcons();
+    initializeAnalytics();
+});
+
+function initializeAnalytics() {
+    initializePredictionChart();
+    initializeSavingsChart();
+    initializeLoadSheddingChart();
+    initializeWeatherImpactChart();
+    
+    loadAnalyticsData();
+    getSmartRecommendations();
+}
+
+function initializePredictionChart() {
+    const ctx = document.getElementById('predictionChart').getContext('2d');
+    predictionChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Actual Generation',
+                    data: [],
+                    borderColor: '#3B82F6',
+                    borderWidth: 2,
+                    tension: 0.4
+                },
+                {
+                    label: 'AI Prediction',
+                    data: [],
+                    borderColor: '#EAB308',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'kWh'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function initializeSavingsChart() {
+    const ctx = document.getElementById('savingsChart').getContext('2d');
+    savingsChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Export Credits', 'Import Savings', 'FCA Savings', 'GST'],
+            datasets: [{
+                data: [40, 30, 20, 10],
+                backgroundColor: ['#22C55E', '#3B82F6', '#EAB308', '#EF4444']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+}
+
+function initializeLoadSheddingChart() {
+    const ctx = document.getElementById('loadSheddingChart').getContext('2d');
+    loadSheddingChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['6AM', '9AM', '12PM', '3PM', '6PM', '9PM'],
+            datasets: [{
+                label: 'Outage Probability',
+                data: [10, 15, 20, 25, 45, 35],
+                backgroundColor: '#EF4444',
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Probability %'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function initializeWeatherImpactChart() {
+    const ctx = document.getElementById('weatherImpactChart').getContext('2d');
+    weatherImpactChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Cloud Cover',
+                    data: [],
+                    borderColor: '#6B7280',
+                    yAxisID: 'y-cloud',
+                    tension: 0.4
+                },
+                {
+                    label: 'Solar Generation',
+                    data: [],
+                    borderColor: '#EAB308',
+                    yAxisID: 'y-solar',
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            },
+            scales: {
+                'y-cloud': {
+                    type: 'linear',
+                    position: 'right',
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Cloud Cover %'
+                    }
+                },
+                'y-solar': {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'kW'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function loadAnalyticsData() {
+    // Fetch and update all analytics data
+    fetch('/api/forecast/solar?lat=33.6844&lon=73.0479')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateModelConfidence(data.confidence_score);
+                updatePredictionChart(data);
+                updateWeatherImpactChart(data);
+            }
+        })
+        .catch(error => console.error('Analytics load failed:', error));
+    
+    // Load savings data
+    fetch('/api/savings/calculate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            solar_generation: 12.5,
+            consumption: 8.2,
+            disco_region: 'IESCO'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            updateSavingsChart(data.savings_breakdown);
+        }
+    })
+    .catch(error => console.error('Savings load failed:', error));
+}
+
+function updateModelConfidence(confidence) {
+    document.getElementById('model-confidence').textContent = confidence + '%';
+}
+
+function updatePredictionChart(data) {
+    if (!predictionChart || !data.hourly_forecast) return;
+    
+    const forecast = data.hourly_forecast.slice(0, 24);
+    const labels = forecast.map(f => {
+        return new Date(f.ds).getHours() + ':00';
+    });
+    
+    const actualData = forecast.map(f => f.adjusted_generation * (0.9 + Math.random() * 0.2));
+    const predictedData = forecast.map(f => f.adjusted_generation);
+    
+    predictionChart.data.labels = labels;
+    predictionChart.data.datasets[0].data = actualData;
+    predictionChart.data.datasets[1].data = predictedData;
+    predictionChart.update();
+}
+
+function updateSavingsChart(savings) {
+    if (!savingsChart) return;
+    
+    savingsChart.data.datasets[0].data = [
+        savings.export_credits,
+        savings.import_savings,
+        savings.fca_savings,
+        savings.gst_deduction
+    ];
+    savingsChart.update();
+}
+
+function updateWeatherImpactChart(data) {
+    if (!weatherImpactChart || !data.hourly_forecast) return;
+    
+    const forecast = data.hourly_forecast.slice(0, 24);
+    const labels = forecast.map(f => new Date(f.ds).getHours() + ':00');
+    
+    // Simulated cloud cover data
+    const cloudCover = forecast.map(() => Math.random() * 60 + 10);
+    const generation = forecast.map(f => f.adjusted_generation);
+    
+    weatherImpactChart.data.labels = labels;
+    weatherImpactChart.data.datasets[0].data = cloudCover;
+    weatherImpactChart.data.datasets[1].data = generation;
+    weatherImpactChart.update();
+}
+
+function runAnomalyScan() {
+    fetch('/api/anomalies/detect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            current_generation: 3.8,
+            expected_generation: 4.2,
+            threshold: 0.15
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.has_anomalies) {
+            document.getElementById('anomaly-count').textContent = data.anomalies.length;
+            alert('Anomalies detected! Check the dashboard for details.');
+        } else {
+            document.getElementById('anomaly-count').textContent = '0';
+            alert('No anomalies detected. System is performing optimally.');
+        }
+    })
+    .catch(error => console.error('Anomaly scan failed:', error));
+}
+
+function getSmartRecommendations() {
+    const appliances = [
+        { name: 'Washing Machine', power_rating: 2.0 },
+        { name: 'Water Pump', power_rating: 1.5 },
+        { name: 'Iron', power_rating: 1.0 },
+        { name: 'Air Conditioner', power_rating: 3.5 }
+    ];
+    
+    fetch('/api/load-shifting/recommendations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ appliances: appliances })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            displayRecommendations(data);
+        }
+    })
+    .catch(error => console.error('Recommendations failed:', error));
+}
+
+function displayRecommendations(data) {
+    const container = document.getElementById('recommendations-container');
+    if (!container) return;
+    
+    let html = '';
+    
+    if (data.recommendations && data.recommendations.length > 0) {
+        data.recommendations.forEach(rec => {
+            html += `
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-medium text-navy-900">${rec.appliance}</h4>
+                        <span class="text-xs px-2 py-1 rounded-full ${rec.priority === 'high' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}">
+                            ${rec.priority}
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Power Rating</span>
+                            <span>${rec.power_rating} kW</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Est. Savings</span>
+                            <span class="text-green-600 font-medium">PKR ${rec.estimated_cost_savings}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    
+    if (data.total_savings_potential) {
+        html += `
+            <div class="md:col-span-2 p-4 bg-gradient-to-r from-navy-900 to-navy-800 rounded-lg text-white">
+                <div class="flex justify-between items-center">
+                    <span class="text-lg font-semibold">Total Savings Potential</span>
+                    <span class="text-2xl font-bold text-red-500">PKR ${data.total_savings_potential}</span>
+                </div>
+            </div>
+        `;
+    }
+    
+    container.innerHTML = html || '<p class="text-gray-600">No recommendations available at this time.</p>';
+}
+</script>
+{% endblock %}

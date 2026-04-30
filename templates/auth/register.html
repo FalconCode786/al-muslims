@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Almuslim{% endblock %}
+
+{% block content %}
+<div class="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <!-- Header -->
+        <div class="text-center">
+            <div class="flex justify-center mb-4">
+                <div class="bg-navy-900 p-4 rounded-full">
+                    <i data-lucide="zap" class="h-10 w-10 text-red-500"></i>
+                </div>
+            </div>
+            <h2 class="text-3xl font-bold text-navy-900">Create your account</h2>
+            <p class="mt-2 text-sm text-gray-600">
+                Start managing your energy with Almuslim
+            </p>
+        </div>
+        
+        <!-- Registration Form -->
+        <form method="POST" action="{{ url_for('auth.register') }}" class="mt-8 space-y-6">
+            <div class="space-y-4">
+                <div>
+                    <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">
+                        Full name
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="user" class="h-5 w-5 text-gray-400"></i>
+                        </div>
+                        <input id="full_name" name="full_name" type="text" required
+                               class="appearance-none block w-full pl-10 px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent"
+                               placeholder="Muhammad Ali">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                        Email address
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="mail" class="h-5 w-5 text-gray-400"></i>
+                        </div>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                               class="appearance-none block w-full pl-10 px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent"
+                               placeholder="you@example.com">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">
+                        Password
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="lock" class="h-5 w-5 text-gray-400"></i>
+                        </div>
+                        <input id="password" name="password" type="password" required
+                               class="appearance-none block w-full pl-10 px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent"
+                               placeholder="Min. 8 characters">
+                    </div>
+                    <p class="mt-1 text-xs text-gray-500">
+                        Must contain uppercase, lowercase, and numbers
+                    </p>
+                </div>
+                
+                <div>
+                    <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-1">
+                        Confirm password
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="lock" class="h-5 w-5 text-gray-400"></i>
+                        </div>
+                        <input id="confirm_password" name="confirm_password" type="password" required
+                               class="appearance-none block w-full pl-10 px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent"
+                               placeholder="Re-enter your password">
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-white bg-navy-900 hover:bg-navy-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-900 font-semibold transition">
+                Create account
+            </button>
+        </form>
+        
+        <p class="text-center text-sm text-gray-600">
+            Already have an account?
+            <a href="{{ url_for('auth.login') }}" class="font-medium text-red-600 hover:text-red-500">
+                Sign in
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
