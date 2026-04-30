@@ -18,6 +18,14 @@ class DashboardManager {
     
     initializeAllCharts() {
         // Initialize power flow chart if element exists
+        // Register chart zoom plugin if available
+        try {
+            if (typeof ChartZoom !== 'undefined' && Chart && ChartZoom) {
+                Chart.register(ChartZoom);
+            }
+        } catch (err) {
+            console.warn('Chart zoom plugin not available', err);
+        }
         const powerFlowCtx = document.getElementById('powerFlowChart');
         if (powerFlowCtx) {
             this.charts.powerFlow = new Chart(powerFlowCtx.getContext('2d'), {
@@ -81,7 +89,49 @@ class DashboardManager {
                     }
                 }
             });
+            // If plugin available, enable pan/zoom defaults
+            try {
+                if (typeof ChartZoom !== 'undefined' && this.charts.powerFlow.options) {
+                    this.charts.powerFlow.options.plugins = this.charts.powerFlow.options.plugins || {};
+                    this.charts.powerFlow.options.plugins.zoom = this.charts.powerFlow.options.plugins.zoom || {
+                        pan: { enabled: true, mode: 'x', modifierKey: 'ctrl' },
+                        zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
+                    };
+                    this.charts.powerFlow.update();
+                }
+            } catch (err) {
+                console.warn('Failed to configure chart zoom plugin', err);
+            }
         }
+        // Initialize sparklines
+        this.initSparklines();
+    }
+
+    initSparklines() {
+        this.charts.sparklines = {};
+        document.querySelectorAll('.sparkline').forEach(canvas => {
+            try {
+                const ctx = canvas.getContext('2d');
+                const key = canvas.getAttribute('data-key') || Math.random().toString(36).slice(2,7);
+                const chart = new Chart(ctx, {
+                    type: 'line',
+                    data: { labels: [], datasets: [{ data: [], borderColor: '#9CA3FF', borderWidth: 1.5, fill: false, tension: 0.3 }] },
+                    options: {
+                        responsive: false,
+                        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                        elements: { point: { radius: 0 } },
+                        scales: {
+                            x: { display: false },
+                            y: { display: false }
+                        }
+                    }
+                });
+                this.charts.sparklines[key] = chart;
+            } catch (err) {
+                // ignore canvas issues
+                console.warn('Sparkline init failed', err);
+            }
+        });
     }
     
     loadInitialData() {
@@ -106,6 +156,15 @@ class DashboardManager {
                 this.fetchRealTimeData();
             });
         });
+
+        // Chart zoom controls
+        const zoomIn = document.getElementById('chart-zoom-in');
+        const zoomReset = document.getElementById('chart-zoom-reset');
+        if (zoomIn) zoomIn.addEventListener('click', () => this.setPowerFlowZoom()); // granularity read from UI
+        if (zoomReset) zoomReset.addEventListener('click', () => this.resetPowerFlowZoom());
+
+        // Settings listeners (easing, granularity, pan toggle)
+        this.initSettingsListeners();
     }
     
     async fetchRealTimeData() {
@@ -262,6 +321,143 @@ class DashboardManager {
         this.charts.powerFlow.data.datasets[1].data = consumptionData;
         this.charts.powerFlow.data.datasets[2].data = exportData;
         this.charts.powerFlow.update();
+
+        // Update sparklines with last 12 points
+        this.updateSparklines(data);
+    }
+
+    setPowerFlowZoom(lastN) {
+        const chart = this.charts.powerFlow;
+        if (!chart) return;
+        const total = chart.data.labels.length;
+        const gran = lastN || this.getZoomGranularity();
+        const minIndex = Math.max(0, total - gran);
+        // Animate to the new min/max for a smooth zoom transition
+        const startMin = (chart.options.scales.x && typeof chart.options.scales.x.min !== 'undefined') ? chart.options.scales.x.min : 0;
+        const startMax = (chart.options.scales.x && typeof chart.options.scales.x.max !== 'undefined') ? chart.options.scales.x.max : (total - 1);
+        const targetMin = minIndex;
+        const targetMax = total - 1;
+        const easingFn = this.getEasingFunction(this.getZoomEasingName());
+        this.animatePowerFlowZoom(startMin, startMax, targetMin, targetMax, 420, false, easingFn);
+    }
+
+    resetPowerFlowZoom() {
+        const chart = this.charts.powerFlow;
+        if (!chart) return;
+        const total = chart.data.labels.length;
+        const startMin = (chart.options.scales.x && typeof chart.options.scales.x.min !== 'undefined') ? chart.options.scales.x.min : 0;
+        const startMax = (chart.options.scales.x && typeof chart.options.scales.x.max !== 'undefined') ? chart.options.scales.x.max : (total - 1);
+        const targetMin = 0;
+        const targetMax = total - 1;
+        this.animatePowerFlowZoom(startMin, startMax, targetMin, targetMax, 420, true);
+    }
+
+    animatePowerFlowZoom(startMin, startMax, targetMin, targetMax, duration = 400, clearAfter = false) {
+        const chart = this.charts.powerFlow;
+        if (!chart) return;
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+        // default easing fallback
+        let easing = easeOutCubic;
+        // if caller provided a custom easing in args (7th param), use it
+        if (arguments.length >= 7 && typeof arguments[6] === 'function') {
+            easing = arguments[6];
+        }
+        const startTime = performance.now();
+
+        const step = (now) => {
+            const elapsed = now - startTime;
+            const t = Math.min(1, elapsed / duration);
+            const eased = easing(t);
+            const curMin = startMin + (targetMin - startMin) * eased;
+            const curMax = startMax + (targetMax - startMax) * eased;
+            if (!chart.options.scales) chart.options.scales = {};
+            if (!chart.options.scales.x) chart.options.scales.x = {};
+            chart.options.scales.x.min = curMin;
+            chart.options.scales.x.max = curMax;
+            chart.update();
+            if (t < 1) {
+                requestAnimationFrame(step);
+            } else {
+                if (clearAfter) {
+                    // Restore to automatic scaling by removing explicit min/max
+                    delete chart.options.scales.x.min;
+                    delete chart.options.scales.x.max;
+                }
+                chart.update();
+            }
+        };
+
+        requestAnimationFrame(step);
+    }
+
+    updateSparklines(data) {
+        if (!data.hourly_forecast) return;
+        const slice = data.hourly_forecast.slice(0, 12);
+        const genSeries = slice.map(f => Number((f.adjusted_generation || 0).toFixed(2)));
+        const consSeries = slice.map(() => Number((1.5 + Math.random() * 2).toFixed(2)));
+        const expSeries = genSeries.map((g,i) => Math.max(0, g - consSeries[i]));
+        const savingsSeries = expSeries.map(e => Number((e * 35).toFixed(0)));
+
+        const mapping = { generation: genSeries, consumption: consSeries, export: expSeries, savings: savingsSeries };
+
+        Object.entries(this.charts.sparklines || {}).forEach(([key, chart]) => {
+            const series = mapping[key] || mapping['generation'];
+            if (!series || series.length === 0) return;
+            chart.data.labels = series.map((_, i) => i);
+            chart.data.datasets[0].data = series;
+            chart.update();
+        });
+    }
+
+    initSettingsListeners() {
+        const gran = document.getElementById('zoom-granularity');
+        const easing = document.getElementById('zoom-easing');
+        const panToggle = document.getElementById('chart-pan-toggle');
+
+        if (gran) gran.addEventListener('change', () => {
+            // no immediate action required; next Zoom In will use new granularity
+        });
+
+        if (easing) easing.addEventListener('change', () => {
+            // no immediate action; easing applied on next animated zoom
+        });
+
+        if (panToggle) {
+            panToggle.addEventListener('click', () => {
+                const pressed = panToggle.getAttribute('aria-pressed') === 'true';
+                const newState = !pressed;
+                panToggle.setAttribute('aria-pressed', newState.toString());
+                panToggle.textContent = newState ? 'Pan: On' : 'Pan: Off';
+                if (this.charts.powerFlow && this.charts.powerFlow.options && this.charts.powerFlow.options.plugins && this.charts.powerFlow.options.plugins.zoom) {
+                    this.charts.powerFlow.options.plugins.zoom.pan.enabled = newState;
+                    this.charts.powerFlow.update();
+                }
+            });
+        }
+    }
+
+    getZoomGranularity() {
+        const el = document.getElementById('zoom-granularity');
+        if (!el) return 12;
+        const v = parseInt(el.value || '12', 10);
+        return isNaN(v) ? 12 : v;
+    }
+
+    getZoomEasingName() {
+        const el = document.getElementById('zoom-easing');
+        return el ? el.value : 'easeOutCubic';
+    }
+
+    getEasingFunction(name) {
+        switch (name) {
+            case 'linear':
+                return t => t;
+            case 'easeInOutQuad':
+                return t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+            case 'easeOutCubic':
+            default:
+                return t => 1 - Math.pow(1 - t, 3);
+        }
     }
     
     updateForecastCard(data) {

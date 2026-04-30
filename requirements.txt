@@ -1,15 +1,12 @@
 Flask
 Flask-Login
-supabase
 python-dotenv
 Werkzeug
 gunicorn
 pytest
 pytest-cov
-prophet
 pandas
 numpy
-openmeteo-requests
 requests-cache
 retry-requests
 APScheduler

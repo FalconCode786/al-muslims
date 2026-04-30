@@ -3,85 +3,110 @@
 {% block title %}Almuslim - AI-Powered Energy Management for Pakistan{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="bg-gradient-to-br from-navy-900 to-navy-800 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    Smart Energy Management for
-                    <span class="text-red-500">Pakistan</span>
+<!-- Hero Section with Parallax -->
+<section class="relative min-h-screen flex items-center bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-green-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -6s;"></div>
+    </div>
+    
+    <!-- Grid Pattern Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="h-full w-full" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Left Content -->
+            <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full">
+                    <div class="pulse-dot"></div>
+                    <span class="text-red-400 text-sm font-medium">AI-Powered Platform</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                    Smart Energy for
+                    <span class="gradient-text">Pakistan</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                    Almuslim leverages artificial intelligence to optimize your solar energy consumption, 
+                
+                <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl">
+                    Almuslim harnesses artificial intelligence to optimize your solar energy, 
                     manage net metering applications, and maximize savings in Pakistani Rupees.
                 </p>
+                
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ url_for('auth.register') }}" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition text-center">
-                        Start Saving Today
+                    <a href="{{ url_for('auth.register') }}" 
+                       class="magnetic-btn group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/25 overflow-hidden">
+                        <span class="relative z-10 flex items-center space-x-2">
+                            <span>Start Saving Today</span>
+                            <i data-lucide="arrow-right" class="h-5 w-5 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </a>
-                    <a href="#features" class="border-2 border-white hover:bg-white hover:text-navy-900 text-white px-8 py-4 rounded-lg font-semibold text-lg transition text-center">
-                        Learn More
+                    
+                    <a href="#features" 
+                       class="magnetic-btn px-8 py-4 border-2 border-white/20 hover:border-white/40 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-white/5 backdrop-blur-sm text-center">
+                        Explore Features
                     </a>
                 </div>
                 
-                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
                     <div>
-                        <div class="text-3xl font-bold text-red-500">30%</div>
-                        <div class="text-sm text-gray-400 mt-1">Average Savings</div>
+                        <div class="text-3xl font-bold text-red-500 stat-counter" data-target="30">0</div>
+                        <div class="text-sm text-gray-500">% Avg Savings</div>
                     </div>
                     <div>
-                        <div class="text-3xl font-bold text-red-500">10k+</div>
-                        <div class="text-sm text-gray-400 mt-1">Active Users</div>
+                        <div class="text-3xl font-bold text-blue-500 stat-counter" data-target="10000">0</div>
+                        <div class="text-sm text-gray-500">Active Users</div>
                     </div>
                     <div>
-                        <div class="text-3xl font-bold text-red-500">95%</div>
-                        <div class="text-sm text-gray-400 mt-1">Accuracy Rate</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold text-red-500">24/7</div>
-                        <div class="text-sm text-gray-400 mt-1">Monitoring</div>
+                        <div class="text-3xl font-bold text-green-500 stat-counter" data-target="95">0</div>
+                        <div class="text-sm text-gray-500">% Accuracy</div>
                     </div>
                 </div>
             </div>
             
-            <div class="hidden lg:block">
-                <div class="bg-navy-800 rounded-2xl p-8 shadow-2xl">
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-red-500/20 p-3 rounded-lg">
-                                <i data-lucide="sun" class="h-8 w-8 text-red-500"></i>
+            <!-- Right Content - 3D Dashboard Preview -->
+            <div class="hidden lg:block" data-aos="fade-left" data-aos-duration="1000">
+                <div class="relative tilt-card">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-blue-500/20 rounded-3xl blur-2xl"></div>
+                    <div class="relative glass rounded-3xl p-8 shadow-2xl border border-white/10">
+                        <!-- Mini Dashboard Preview -->
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="text-white font-semibold">Live Power Flow</span>
+                                <div class="pulse-dot"></div>
                             </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Solar Generation</div>
-                                <div class="text-2xl font-bold">4.2 kW</div>
+                            
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="bg-white/5 rounded-2xl p-4 text-center border border-white/10 backdrop-blur-sm">
+                                    <i data-lucide="sun" class="h-8 w-8 text-yellow-500 mx-auto mb-2"></i>
+                                    <div class="text-2xl font-bold text-white">4.2</div>
+                                    <div class="text-xs text-gray-400">kW Solar</div>
+                                </div>
+                                <div class="bg-white/5 rounded-2xl p-4 text-center border border-white/10 backdrop-blur-sm">
+                                    <i data-lucide="home" class="h-8 w-8 text-blue-500 mx-auto mb-2"></i>
+                                    <div class="text-2xl font-bold text-white">2.8</div>
+                                    <div class="text-xs text-gray-400">kW Home</div>
+                                </div>
+                                <div class="bg-white/5 rounded-2xl p-4 text-center border border-white/10 backdrop-blur-sm">
+                                    <i data-lucide="activity" class="h-8 w-8 text-green-500 mx-auto mb-2"></i>
+                                    <div class="text-2xl font-bold text-white">1.4</div>
+                                    <div class="text-xs text-gray-400">kW Export</div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-green-500/20 p-3 rounded-lg">
-                                <i data-lucide="home" class="h-8 w-8 text-green-500"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Home Consumption</div>
-                                <div class="text-2xl font-bold">2.8 kW</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-blue-500/20 p-3 rounded-lg">
-                                <i data-lucide="activity" class="h-8 w-8 text-blue-500"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Grid Export</div>
-                                <div class="text-2xl font-bold">1.4 kW</div>
-                            </div>
-                        </div>
-                        
-                        <div class="border-t border-gray-700 pt-4 mt-4">
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-400">Today's Savings</span>
-                                <span class="text-2xl font-bold text-red-500">PKR 450</span>
+                            
+                            <div class="bg-white/5 rounded-2xl p-4 border border-white/10">
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span class="text-gray-400">Today's Savings</span>
+                                    <span class="text-red-400 font-bold">PKR 450</span>
+                                </div>
+                                <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full animate-pulse" style="width: 75%;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,281 +114,238 @@
             </div>
         </div>
     </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div class="w-1.5 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+        </div>
+    </div>
 </section>
 
-<!-- Features Section -->
-<section id="features" class="py-20 bg-white">
+<!-- Features Section with Flip Cards -->
+<section id="features" class="py-32 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
-                Why Choose Almuslim?
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold text-navy-900 mb-4">
+                Intelligent <span class="gradient-text">Features</span>
             </h2>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Our platform combines cutting-edge AI with deep understanding of Pakistan's energy regulations 
-                to deliver unprecedented value for solar energy users.
+                Cutting-edge AI technology combined with Pakistan's energy framework
             </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Feature 1 -->
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                <div class="bg-navy-900 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                    <i data-lucide="brain-circuit" class="h-8 w-8 text-red-500"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
+            <!-- Flip Card 1 -->
+            <div class="flip-card h-[320px]">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                            <i data-lucide="brain-circuit" class="h-8 w-8 text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy-900 mb-3">AI Forecasting</h3>
+                        <p class="text-gray-600">Predict solar generation with exceptional accuracy</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="text-center">
+                            <i data-lucide="brain-circuit" class="h-12 w-12 text-red-500 mx-auto mb-4"></i>
+                            <p class="text-gray-300 leading-relaxed">
+                                Our Prophet-based ML models analyze weather patterns including 
+                                smog and monsoon seasons for precise 48-hour solar forecasts.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">AI-Powered Forecasting</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Advanced machine learning models predict tomorrow's solar generation with exceptional accuracy, 
-                    accounting for local weather patterns including smog and monsoon seasons.
-                </p>
             </div>
             
-            <!-- Feature 2 -->
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                <div class="bg-navy-900 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                    <i data-lucide="calculator" class="h-8 w-8 text-red-500"></i>
+            <!-- Flip Card 2 -->
+            <div class="flip-card h-[320px]">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="calculator" class="h-8 w-8 text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy-900 mb-3">PKR Savings Engine</h3>
+                        <p class="text-gray-600">Real-time calculation with all NEPRA charges</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="text-center">
+                            <i data-lucide="calculator" class="h-12 w-12 text-red-500 mx-auto mb-4"></i>
+                            <p class="text-gray-300 leading-relaxed">
+                                Dynamic PKR calculation incorporating base tariffs, FCA, GST, 
+                                TV Fee, and DISCO-specific loss factors for 95%+ bill accuracy.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">PKR Savings Engine</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Real-time calculation of savings in Pakistani Rupees, incorporating NEPRA base tariffs, 
-                    Fuel Charges Adjustment, GST, and TV Fee for accurate financial projections.
-                </p>
             </div>
             
-            <!-- Feature 3 -->
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                <div class="bg-navy-900 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                    <i data-lucide="file-check" class="h-8 w-8 text-red-500"></i>
+            <!-- Flip Card 3 -->
+            <div class="flip-card h-[320px]">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="file-check" class="h-8 w-8 text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy-900 mb-3">Digital DISCO Portal</h3>
+                        <p class="text-gray-600">Streamlined net metering applications</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="text-center">
+                            <i data-lucide="file-check" class="h-12 w-12 text-red-500 mx-auto mb-4"></i>
+                            <p class="text-gray-300 leading-relaxed">
+                                Complete digitized workflow from document submission to green meter 
+                                installation with real-time application tracking.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">Digital DISCO Portal</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Streamlined net metering application process with automated eligibility checks, 
-                    document management, and real-time application tracking.
-                </p>
             </div>
             
-            <!-- Feature 4 -->
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                <div class="bg-navy-900 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                    <i data-lucide="battery-charging" class="h-8 w-8 text-red-500"></i>
+            <!-- Flip Card 4 -->
+            <div class="flip-card h-[320px]">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="battery-charging" class="h-8 w-8 text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy-900 mb-3">Load Shedding AI</h3>
+                        <p class="text-gray-600">Intelligent outage pattern recognition</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="text-center">
+                            <i data-lucide="battery-charging" class="h-12 w-12 text-red-500 mx-auto mb-4"></i>
+                            <p class="text-gray-300 leading-relaxed">
+                                Machine learning algorithms that learn local grid patterns and 
+                                provide smart battery backup recommendations.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">Load Shedding Tracker</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Intelligent pattern recognition for local grid outages with smart recommendations 
-                    for battery backup management during peak load shedding periods.
-                </p>
             </div>
             
-            <!-- Feature 5 -->
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                <div class="bg-navy-900 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                    <i data-lucide="shield-check" class="h-8 w-8 text-red-500"></i>
+            <!-- Flip Card 5 -->
+            <div class="flip-card h-[320px]">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="shield-check" class="h-8 w-8 text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy-900 mb-3">NEPRA Compliant</h3>
+                        <p class="text-gray-600">Full regulatory compliance</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="text-center">
+                            <i data-lucide="shield-check" class="h-12 w-12 text-red-500 mx-auto mb-4"></i>
+                            <p class="text-gray-300 leading-relaxed">
+                                Complete adherence to NEPRA regulations and all DISCO frameworks 
+                                across Pakistan's energy distribution network.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">NEPRA Compliant</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Full compliance with NEPRA regulations and DISCO frameworks across Pakistan, 
-                    ensuring your net metering application meets all requirements.
-                </p>
             </div>
             
-            <!-- Feature 6 -->
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                <div class="bg-navy-900 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                    <i data-lucide="globe" class="h-8 w-8 text-red-500"></i>
+            <!-- Flip Card 6 -->
+            <div class="flip-card h-[320px]">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="globe" class="h-8 w-8 text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy-900 mb-3">Bilingual UI</h3>
+                        <p class="text-gray-600">English and Urdu interface</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="text-center">
+                            <i data-lucide="globe" class="h-12 w-12 text-red-500 mx-auto mb-4"></i>
+                            <p class="text-gray-300 leading-relaxed">
+                                Seamless toggle between English and Urdu (Nastaliq) making energy 
+                                management accessible to all Pakistanis.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">Bilingual Interface</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Seamless toggle between English and Urdu interfaces, making energy management 
-                    accessible to all Pakistani consumers.
-                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- How It Works -->
-<section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
-                How Almuslim Works
+<!-- How It Works Section with Animated Steps -->
+<section class="py-32 bg-navy-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+        <div class="h-full w-full" style="background-image: linear-gradient(30deg, #ffffff 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                How <span class="gradient-text">Almuslim</span> Works
             </h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Getting started with intelligent energy management is simple and straightforward.
-            </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center">
-                <div class="bg-navy-900 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span class="text-3xl font-bold text-red-500">1</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative w-24 h-24 mx-auto mb-8">
+                    <div class="absolute inset-0 bg-red-500/20 rounded-full blur-xl group-hover:bg-red-500/40 transition"></div>
+                    <div class="relative w-24 h-24 bg-navy-800 rounded-full flex items-center justify-center border-2 border-red-500/50 group-hover:border-red-500 transition">
+                        <span class="text-3xl font-bold text-red-500">1</span>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">Connect Your System</h3>
-                <p class="text-gray-600">
-                    Link your solar inverter to our platform for real-time monitoring and data collection.
-                </p>
+                <h3 class="text-xl font-semibold mb-4">Connect System</h3>
+                <p class="text-gray-400">Link your solar inverter for real-time monitoring and data collection</p>
             </div>
             
-            <div class="text-center">
-                <div class="bg-navy-900 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span class="text-3xl font-bold text-red-500">2</span>
+            <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative w-24 h-24 mx-auto mb-8">
+                    <div class="absolute inset-0 bg-blue-500/20 rounded-full blur-xl group-hover:bg-blue-500/40 transition"></div>
+                    <div class="relative w-24 h-24 bg-navy-800 rounded-full flex items-center justify-center border-2 border-blue-500/50 group-hover:border-blue-500 transition">
+                        <span class="text-3xl font-bold text-blue-500">2</span>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">AI Analysis</h3>
-                <p class="text-gray-600">
-                    Our AI algorithms analyze your energy patterns and predict optimal usage strategies.
-                </p>
+                <h3 class="text-xl font-semibold mb-4">AI Analysis</h3>
+                <p class="text-gray-400">Algorithms analyze patterns and predict optimal energy strategies</p>
             </div>
             
-            <div class="text-center">
-                <div class="bg-navy-900 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span class="text-3xl font-bold text-red-500">3</span>
-                </div>
-                <h3 class="text-xl font-semibold text-navy-900 mb-4">Start Saving</h3>
-                <p class="text-gray-600">
-                    Receive actionable insights and automate your net metering application for maximum savings.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Almuslim -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
-                    About Almuslim
-                </h2>
-                <div class="space-y-4 text-gray-600 leading-relaxed">
-                    <p>
-                        Almuslim is Pakistan's premier AI-driven energy management platform, purpose-built 
-                        to address the unique challenges and opportunities in the country's evolving solar energy landscape.
-                    </p>
-                    <p>
-                        Founded with the vision of making renewable energy accessible and profitable for every Pakistani, 
-                        we combine deep technical expertise with comprehensive understanding of NEPRA regulations 
-                        and DISCO frameworks.
-                    </p>
-                    <p>
-                        Our platform serves thousands of users across Pakistan, from residential homeowners 
-                        to commercial enterprises, helping them navigate the complex net metering process 
-                        while maximizing their return on solar investment.
-                    </p>
-                </div>
-                
-                <div class="mt-8 grid grid-cols-3 gap-4">
-                    <div class="text-center p-4 bg-gray-50 rounded-lg">
-                        <div class="text-2xl font-bold text-navy-900">2023</div>
-                        <div class="text-sm text-gray-600">Founded</div>
-                    </div>
-                    <div class="text-center p-4 bg-gray-50 rounded-lg">
-                        <div class="text-2xl font-bold text-navy-900">PKR 50M+</div>
-                        <div class="text-sm text-gray-600">Saved for Users</div>
-                    </div>
-                    <div class="text-center p-4 bg-gray-50 rounded-lg">
-                        <div class="text-2xl font-bold text-navy-900">All DISCOs</div>
-                        <div class="text-sm text-gray-600">Coverage</div>
+            <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative w-24 h-24 mx-auto mb-8">
+                    <div class="absolute inset-0 bg-green-500/20 rounded-full blur-xl group-hover:bg-green-500/40 transition"></div>
+                    <div class="relative w-24 h-24 bg-navy-800 rounded-full flex items-center justify-center border-2 border-green-500/50 group-hover:border-green-500 transition">
+                        <span class="text-3xl font-bold text-green-500">3</span>
                     </div>
                 </div>
-            </div>
-            
-            <div class="bg-navy-900 rounded-2xl p-8 text-white">
-                <h3 class="text-2xl font-semibold mb-6">Our Mission</h3>
-                <div class="space-y-4">
-                    <div class="flex items-start space-x-4">
-                        <i data-lucide="target" class="h-6 w-6 text-red-500 mt-1 flex-shrink-0"></i>
-                        <p class="text-gray-300">
-                            Democratize access to intelligent energy management for all Pakistanis.
-                        </p>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <i data-lucide="leaf" class="h-6 w-6 text-green-500 mt-1 flex-shrink-0"></i>
-                        <p class="text-gray-300">
-                            Accelerate Pakistan's transition to sustainable energy through technology.
-                        </p>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <i data-lucide="trending-up" class="h-6 w-6 text-blue-500 mt-1 flex-shrink-0"></i>
-                        <p class="text-gray-300">
-                            Maximize financial returns for solar energy adopters across the country.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="mt-8 pt-8 border-t border-gray-700">
-                    <h4 class="text-lg font-semibold mb-4">Our Coverage</h4>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">IESCO</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">LESCO</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">GEPCO</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">FESCO</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">MEPCO</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">PESCO</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">HESCO</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="check-circle" class="h-4 w-4 text-red-500"></i>
-                            <span class="text-sm">QESCO</span>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="text-xl font-semibold mb-4">Start Saving</h3>
+                <p class="text-gray-400">Receive insights and automate net metering for maximum returns</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-red-600 to-red-700">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Optimize Your Energy?
+<section class="py-32 bg-gradient-to-br from-red-600 to-red-800 relative overflow-hidden">
+    <div class="absolute inset-0">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div style="background-image: radial-gradient(circle, #ffffff 2px, transparent 2px); background-size: 40px 40px; height: 100%;"></div>
+        </div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 text-center relative" data-aos="zoom-in">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Transform Your Energy?
         </h2>
-        <p class="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of Pakistanis who are already saving money and energy with Almuslim's intelligent platform.
+        <p class="text-xl text-red-100 mb-10 max-w-2xl mx-auto">
+            Join thousands of Pakistanis saving money with intelligent energy management.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ url_for('auth.register') }}" class="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition">
+            <a href="{{ url_for('auth.register') }}" 
+               class="magnetic-btn px-10 py-5 bg-white text-red-600 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 ripple">
                 Create Free Account
             </a>
-            <a href="{{ url_for('auth.login') }}" class="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-lg font-semibold text-lg transition">
+            <a href="{{ url_for('auth.login') }}" 
+               class="magnetic-btn px-10 py-5 border-2 border-white text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300">
                 Login to Dashboard
             </a>
         </div>
     </div>
 </section>
-{% endblock %}
-
-{% block extra_scripts %}
-<script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-</script>
 {% endblock %}

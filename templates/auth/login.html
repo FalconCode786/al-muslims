@@ -3,79 +3,100 @@
 {% block title %}Login - Almuslim{% endblock %}
 
 {% block content %}
-<div class="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
-        <!-- Header -->
-        <div class="text-center">
-            <div class="flex justify-center mb-4">
-                <div class="bg-navy-900 p-4 rounded-full">
+<div class="min-h-[90vh] flex items-center justify-center px-4 py-12">
+    <div class="max-w-md w-full" data-aos="fade-up">
+        <!-- Header Card -->
+        <div class="text-center mb-8">
+            <div class="w-20 h-20 mx-auto mb-6 relative">
+                <div class="absolute inset-0 bg-red-500/20 rounded-full blur-xl"></div>
+                <div class="relative w-20 h-20 bg-navy-900 rounded-2xl flex items-center justify-center border-2 border-red-500/50">
                     <i data-lucide="zap" class="h-10 w-10 text-red-500"></i>
                 </div>
             </div>
-            <h2 class="text-3xl font-bold text-navy-900">Welcome back</h2>
-            <p class="mt-2 text-sm text-gray-600">
-                Sign in to access your Almuslim dashboard
-            </p>
+            <h2 class="text-3xl font-bold text-navy-900">Welcome Back</h2>
+            <p class="mt-2 text-gray-600">Sign in to your Almuslim dashboard</p>
         </div>
         
-        <!-- Login Form -->
-        <form method="POST" action="{{ url_for('auth.login', next=request.args.get('next', '')) }}" class="mt-8 space-y-6">
-            <div class="space-y-4">
+        <!-- Login Card -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover-lift">
+            <form method="POST" action="{{ url_for('auth.login', next=request.args.get('next', '')) }}" class="space-y-6">
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                        Email address
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address
                     </label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i data-lucide="mail" class="h-5 w-5 text-gray-400"></i>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i data-lucide="mail" class="h-5 w-5 text-gray-400 group-focus-within:text-red-500 transition"></i>
                         </div>
                         <input id="email" name="email" type="email" autocomplete="email" required
-                               class="appearance-none block w-full pl-10 px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent"
+                               class="block w-full pl-12 pr-4 py-3.5 border border-gray-300 rounded-2xl shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
                                placeholder="you@example.com">
                     </div>
                 </div>
                 
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
                         Password
                     </label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i data-lucide="lock" class="h-5 w-5 text-gray-400"></i>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i data-lucide="lock" class="h-5 w-5 text-gray-400 group-focus-within:text-red-500 transition"></i>
                         </div>
                         <input id="password" name="password" type="password" autocomplete="current-password" required
-                               class="appearance-none block w-full pl-10 px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent"
+                               class="block w-full pl-12 pr-12 py-3.5 border border-gray-300 rounded-2xl shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
                                placeholder="Enter your password">
+                        <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                            <i id="eye-icon" data-lucide="eye-off" class="h-5 w-5 text-gray-400 hover:text-gray-600 transition"></i>
+                        </button>
                     </div>
                 </div>
                 
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
                         <input id="remember" name="remember" type="checkbox"
-                               class="h-4 w-4 text-navy-900 focus:ring-navy-900 border-gray-300 rounded">
-                        <label for="remember" class="ml-2 block text-sm text-gray-700">
+                               class="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded cursor-pointer">
+                        <label for="remember" class="ml-2 block text-sm text-gray-700 cursor-pointer">
                             Remember me
                         </label>
                     </div>
-                    
-                    <a href="#" class="text-sm text-navy-900 hover:text-navy-700 font-medium">
+                    <a href="#" class="text-sm font-medium text-red-600 hover:text-red-500 transition">
                         Forgot password?
                     </a>
                 </div>
-            </div>
+                
+                <button type="submit"
+                        class="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-2xl shadow-sm text-white bg-gradient-to-r from-navy-900 to-navy-800 hover:from-navy-800 hover:to-navy-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-900 font-semibold transition-all duration-300 hover:shadow-lg magnetic-btn ripple">
+                    Sign In
+                </button>
+            </form>
             
-            <button type="submit"
-                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-white bg-navy-900 hover:bg-navy-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-900 font-semibold transition">
-                Sign in
-            </button>
-        </form>
-        
-        <p class="text-center text-sm text-gray-600">
-            Don't have an account?
-            <a href="{{ url_for('auth.register') }}" class="font-medium text-red-600 hover:text-red-500">
-                Create one now
-            </a>
-        </p>
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-600">
+                    Don't have an account?
+                    <a href="{{ url_for('auth.register') }}" class="font-medium text-red-600 hover:text-red-500 transition">
+                        Create one now
+                    </a>
+                </p>
+            </div>
+        </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function togglePassword() {
+    const password = document.getElementById('password');
+    const icon = document.getElementById('eye-icon');
+    
+    if (password.type === 'password') {
+        password.type = 'text';
+        icon.setAttribute('data-lucide', 'eye');
+    } else {
+        password.type = 'password';
+        icon.setAttribute('data-lucide', 'eye-off');
+    }
+    lucide.createIcons();
+}
+</script>
 {% endblock %}

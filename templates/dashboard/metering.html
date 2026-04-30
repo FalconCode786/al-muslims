@@ -4,98 +4,129 @@
 
 {% block content %}
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="mb-8">
+    <!-- Header -->
+    <div class="mb-8" data-aos="fade-down">
         <h1 class="text-3xl font-bold text-navy-900">Net Metering Portal</h1>
-        <p class="mt-1 text-gray-600">Track your DISCO net metering application</p>
+        <p class="mt-1 text-gray-600">Track your DISCO net metering application in real-time</p>
     </div>
     
-    <!-- Application Stepper -->
-    <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-200 mb-8">
-        <h3 class="text-lg font-semibold text-navy-900 mb-6">Application Progress</h3>
+    <!-- Application Progress -->
+    <div class="bg-white rounded-3xl shadow-sm p-8 border border-gray-100 mb-8" data-aos="fade-up">
+        <h3 class="text-lg font-semibold text-navy-900 mb-8">Application Progress</h3>
         
-        <div class="flex items-center justify-between">
-            <div class="flex flex-col items-center">
-                <div class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold">1</div>
-                <p class="text-sm font-medium mt-2">Document Submission</p>
-                <p class="text-xs text-green-600">Completed</p>
+        <div class="relative">
+            <!-- Progress Line -->
+            <div class="absolute top-5 left-0 right-0 h-1 bg-gray-200 rounded-full">
+                <div class="h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full transition-all duration-500" style="width: 40%;"></div>
             </div>
-            <div class="flex-1 h-0.5 bg-gray-300 mx-4"></div>
-            <div class="flex flex-col items-center">
-                <div class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold">2</div>
-                <p class="text-sm font-medium mt-2">Survey</p>
-                <p class="text-xs text-yellow-600">In Progress</p>
-            </div>
-            <div class="flex-1 h-0.5 bg-gray-300 mx-4"></div>
-            <div class="flex flex-col items-center">
-                <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold">3</div>
-                <p class="text-sm font-medium mt-2">Demand Notice</p>
-                <p class="text-xs text-gray-500">Pending</p>
-            </div>
-            <div class="flex-1 h-0.5 bg-gray-300 mx-4"></div>
-            <div class="flex flex-col items-center">
-                <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold">4</div>
-                <p class="text-sm font-medium mt-2">Inspection</p>
-                <p class="text-xs text-gray-500">Pending</p>
-            </div>
-            <div class="flex-1 h-0.5 bg-gray-300 mx-4"></div>
-            <div class="flex flex-col items-center">
-                <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold">5</div>
-                <p class="text-sm font-medium mt-2">Green Meter</p>
-                <p class="text-xs text-gray-500">Pending</p>
+            
+            <!-- Steps -->
+            <div class="relative flex justify-between">
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 ring-4 ring-white">1</div>
+                    <p class="text-xs font-medium mt-3 text-center">Document<br>Submission</p>
+                    <span class="text-xs text-green-600 mt-1">Completed</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 ring-4 ring-white">2</div>
+                    <p class="text-xs font-medium mt-3 text-center">Site<br>Survey</p>
+                    <span class="text-xs text-yellow-600 mt-1">In Progress</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm z-10 ring-4 ring-white">3</div>
+                    <p class="text-xs font-medium mt-3 text-center">Demand<br>Notice</p>
+                    <span class="text-xs text-gray-500 mt-1">Pending</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm z-10 ring-4 ring-white">4</div>
+                    <p class="text-xs font-medium mt-3 text-center">Inspection</p>
+                    <span class="text-xs text-gray-500 mt-1">Pending</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm z-10 ring-4 ring-white">5</div>
+                    <p class="text-xs font-medium mt-3 text-center">Green<br>Meter</p>
+                    <span class="text-xs text-gray-500 mt-1">Pending</span>
+                </div>
             </div>
         </div>
     </div>
     
     <!-- Document Vault -->
-    <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-200">
+    <div class="bg-white rounded-3xl shadow-sm p-8 border border-gray-100" data-aos="fade-up" data-aos-delay="100">
         <div class="flex items-center justify-between mb-6">
             <h3 class="text-lg font-semibold text-navy-900">Document Vault</h3>
-            <button class="px-4 py-2 bg-navy-900 text-white rounded-lg hover:bg-navy-800 transition flex items-center space-x-2">
+            <button class="px-5 py-2.5 bg-navy-900 text-white rounded-2xl hover:bg-navy-800 transition-all duration-300 flex items-center space-x-2 shadow-sm hover:shadow-lg text-sm font-medium magnetic-btn">
                 <i data-lucide="upload" class="h-4 w-4"></i>
                 <span>Upload Document</span>
             </button>
         </div>
         
         <div class="space-y-4">
-            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+            <div class="flex items-center justify-between p-5 bg-gray-50 rounded-2xl hover:bg-gray-100 transition cursor-pointer hover-lift">
                 <div class="flex items-center space-x-4">
-                    <i data-lucide="file-text" class="h-8 w-8 text-navy-900"></i>
+                    <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center">
+                        <i data-lucide="file-check" class="h-6 w-6 text-green-600"></i>
+                    </div>
                     <div>
-                        <p class="font-medium">CNIC Copy</p>
+                        <p class="font-medium text-navy-900">CNIC Copy</p>
                         <p class="text-sm text-gray-500">Required for application</p>
                     </div>
                 </div>
-                <span class="text-sm text-green-600 flex items-center">
-                    <i data-lucide="check-circle" class="h-4 w-4 mr-1"></i>
-                    Uploaded
+                <span class="text-sm text-green-600 flex items-center space-x-1">
+                    <i data-lucide="check-circle" class="h-4 w-4"></i>
+                    <span>Uploaded</span>
                 </span>
             </div>
             
-            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+            <div class="flex items-center justify-between p-5 bg-red-50 rounded-2xl hover:bg-red-100 transition cursor-pointer hover-lift border border-red-100">
                 <div class="flex items-center space-x-4">
-                    <i data-lucide="file-text" class="h-8 w-8 text-navy-900"></i>
+                    <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center">
+                        <i data-lucide="file-warning" class="h-6 w-6 text-red-600"></i>
+                    </div>
                     <div>
-                        <p class="font-medium">WAPDA Bill</p>
-                        <p class="text-sm text-gray-500">Latest electricity bill</p>
+                        <p class="font-medium text-navy-900">WAPDA Bill</p>
+                        <p class="text-sm text-red-500">Latest electricity bill required</p>
                     </div>
                 </div>
-                <span class="text-sm text-red-600 flex items-center">
-                    <i data-lucide="alert-circle" class="h-4 w-4 mr-1"></i>
-                    Missing
+                <span class="text-sm text-red-600 flex items-center space-x-1">
+                    <i data-lucide="alert-circle" class="h-4 w-4"></i>
+                    <span>Missing</span>
                 </span>
             </div>
             
-            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+            <div class="flex items-center justify-between p-5 bg-gray-50 rounded-2xl hover:bg-gray-100 transition cursor-pointer hover-lift">
                 <div class="flex items-center space-x-4">
-                    <i data-lucide="file-text" class="h-8 w-8 text-navy-900"></i>
+                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center">
+                        <i data-lucide="file-text" class="h-6 w-6 text-blue-600"></i>
+                    </div>
                     <div>
-                        <p class="font-medium">NOC from Owner</p>
+                        <p class="font-medium text-navy-900">NOC from Owner</p>
                         <p class="text-sm text-gray-500">If rented property</p>
                     </div>
                 </div>
-                <span class="text-sm text-gray-600 flex items-center">
-                    <i data-lucide="minus-circle" class="h-4 w-4 mr-1"></i>
-                    Optional
+                <span class="text-sm text-gray-500 flex items-center space-x-1">
+                    <i data-lucide="minus-circle" class="h-4 w-4"></i>
+                    <span>Optional</span>
+                </span>
+            </div>
+            
+            <div class="flex items-center justify-between p-5 bg-gray-50 rounded-2xl hover:bg-gray-100 transition cursor-pointer hover-lift">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-2xl flex items-center justify-center">
+                        <i data-lucide="file-text" class="h-6 w-6 text-yellow-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-navy-900">Installer Certificate</p>
+                        <p class="text-sm text-gray-500">AEDB certified installer</p>
+                    </div>
+                </div>
+                <span class="text-sm text-yellow-600 flex items-center space-x-1">
+                    <i data-lucide="clock" class="h-4 w-4"></i>
+                    <span>Pending</span>
                 </span>
             </div>
         </div>

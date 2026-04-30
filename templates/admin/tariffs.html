@@ -1,0 +1,62 @@
+
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Tariff Management - Admin{% endblock %}
+{% block header %}Tariff Rates Management{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">DISCO</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Base Tariff (PKR/kWh)</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">FCA Rate</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Loss Factor</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% if tariff_rates and tariff_rates.data %}
+                    {% for tariff in tariff_rates.data %}
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="px-6 py-4 font-medium text-navy-900">{{ tariff.disco_name }}</td>
+                        <td class="px-6 py-4">
+                            <form method="POST" action="{{ url_for('admin.update_tariff') }}" class="flex items-center space-x-2">
+                                <input type="hidden" name="disco_name" value="{{ tariff.disco_name }}">
+                                <input type="number" step="0.01" name="base_tariff" value="{{ tariff.base_tariff }}" 
+                                       class="w-24 px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-navy-900">
+                        </td>
+                        <td class="px-6 py-4">
+                                <input type="number" step="0.01" name="fca_rate" value="{{ tariff.fca_rate }}" 
+                                       class="w-24 px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-navy-900">
+                        </td>
+                        <td class="px-6 py-4">
+                                <input type="number" step="0.01" name="loss_factor" value="{{ tariff.loss_factor }}" 
+                                       class="w-24 px-3 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-navy-900">
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 text-xs rounded-full font-medium {% if tariff.is_active %}bg-green-100 text-green-800{% else %}bg-red-100 text-red-800{% endif %}">
+                                {{ 'Active' if tariff.is_active else 'Inactive' }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <button type="submit" class="px-4 py-2 bg-navy-900 text-white rounded-xl hover:bg-navy-800 transition text-sm font-medium">
+                                Update
+                            </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center text-gray-500">No tariff rates found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

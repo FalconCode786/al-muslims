@@ -1,0 +1,121 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}User Detail - Admin{% endblock %}
+{% block header %}User Details{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- User Info -->
+    <div class="lg:col-span-1">
+        <div class="bg-white rounded-3xl shadow-sm p-6 border border-gray-100">
+            <div class="text-center mb-6">
+                <div class="w-20 h-20 bg-navy-900 rounded-3xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                    {{ user.full_name[:1].upper() if user and user.full_name else 'U' }}
+                </div>
+                <h3 class="text-xl font-semibold text-navy-900">{{ user.full_name if user else 'Unknown' }}</h3>
+                <p class="text-sm text-gray-500">{{ user.email if user else '' }}</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="flex justify-between items-center py-2 border-b">
+                    <span class="text-sm text-gray-500">Status</span>
+                    <span class="px-3 py-1 text-xs rounded-full font-medium {% if user and user.is_active %}bg-green-100 text-green-800{% else %}bg-red-100 text-red-800{% endif %}">
+                        {{ 'Active' if user and user.is_active else 'Inactive' }}
+                    </span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b">
+                    <span class="text-sm text-gray-500">Role</span>
+                    <span class="px-3 py-1 text-xs rounded-full font-medium {% if user and user.is_admin %}bg-red-100 text-red-800{% else %}bg-gray-100 text-gray-800{% endif %}">
+                        {{ 'Admin' if user and user.is_admin else 'User' }}
+                    </span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b">
+                    <span class="text-sm text-gray-500">Phone</span>
+                    <span class="text-sm">{{ user.phone if user else 'N/A' }}</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b">
+                    <span class="text-sm text-gray-500">DISCO</span>
+                    <span class="text-sm font-medium">{{ user.disco_region if user else 'N/A' }}</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                    <span class="text-sm text-gray-500">Joined</span>
+                    <span class="text-sm">{{ user.created_at[:10] if user and user.created_at else 'N/A' }}</span>
+                </div>
+            </div>
+            
+            <div class="mt-6 space-y-2">
+                <form method="POST" action="{{ url_for('admin.toggle_user_status', user_id=user.id) }}">
+                    <button type="submit" class="w-full py-2.5 {% if user and user.is_active %}bg-red-500 hover:bg-red-600{% else %}bg-green-500 hover:bg-green-600{% endif %} text-white rounded-2xl transition text-sm font-medium">
+                        {{ 'Deactivate User' if user and user.is_active else 'Activate User' }}
+                    </button>
+                </form>
+                
+                <form method="POST" action="{{ url_for('admin.toggle_admin_status', user_id=user.id) }}">
+                    <button type="submit" class="w-full py-2.5 border border-navy-900 text-navy-900 rounded-2xl hover:bg-navy-50 transition text-sm font-medium">
+                        {{ 'Remove Admin' if user and user.is_admin else 'Make Admin' }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- User Applications -->
+    <div class="lg:col-span-2">
+        <div class="bg-white rounded-3xl shadow-sm p-6 border border-gray-100 mb-8">
+            <h3 class="text-lg font-semibold text-navy-900 mb-4">Applications</h3>
+            {% if applications and applications.data %}
+                <div class="space-y-3">
+                    {% for app in applications.data %}
+                    <a href="{{ url_for('admin.application_detail', application_id=app.id) }}" 
+                       class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-gray-100 transition">
+                        <div>
+                            <p class="font-medium text-navy-900">{{ app.application_number }}</p>
+                            <p class="text-sm text-gray-500">{{ app.disco_name }}</p>
+                        </div>
+                        <span class="px-3 py-1 text-xs rounded-full font-medium 
+                            {% if app.application_status == 'approved' %}bg-green-100 text-green-800
+                            {% elif app.application_status == 'rejected' %}bg-red-100 text-red-800
+                            {% else %}bg-yellow-100 text-yellow-800{% endif %}">
+                            {{ app.application_status.replace('_', ' ').title() }}
+                        </span>
+                    </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-gray-500 text-sm">No applications found.</p>
+            {% endif %}
+        </div>
+        
+        <!-- Recent Readings -->
+        <div class="bg-white rounded-3xl shadow-sm p-6 border border-gray-100">
+            <h3 class="text-lg font-semibold text-navy-900 mb-4">Recent Power Readings</h3>
+            {% if readings and readings.data %}
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="text-left text-gray-500">
+                                <th class="pb-2">Time</th>
+                                <th class="pb-2">Solar</th>
+                                <th class="pb-2">Consumption</th>
+                                <th class="pb-2">Export</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reading in readings.data[:10] %}
+                            <tr class="border-t border-gray-100">
+                                <td class="py-2 text-gray-600">{{ reading.timestamp[:19] if reading.timestamp else '' }}</td>
+                                <td class="py-2">{{ reading.solar_generation }} kW</td>
+                                <td class="py-2">{{ reading.home_consumption }} kW</td>
+                                <td class="py-2">{{ reading.grid_export }} kW</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-gray-500 text-sm">No readings available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

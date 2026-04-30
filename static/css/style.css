@@ -1,0 +1,111 @@
+:root {
+	color-scheme: light;
+}
+
+/* Light mode - Light blue background with dark text */
+body {
+	--tw-text-opacity: 1;
+	color: #1e293b;
+	background-color: #e3f2fd !important;
+	background: linear-gradient(135deg, #e3f2fd 0%, #f0f4ff 100%) !important;
+}
+
+.bg-slate-100 {
+	background-color: #e3f2fd;
+}
+
+/* Text color utilities - Dark */
+h1, h2, h3, h4, h5, h6 {
+	color: #0b1220;
+}
+
+p, span, div, li {
+	color: #1e293b;
+}
+
+.text-navy-900 {
+	color: #0b1220 !important;
+}
+
+.text-gray-600 {
+	color: #475569 !important;
+}
+
+.text-gray-700 {
+	color: #334155 !important;
+}
+
+/* Dark mode enhancements */
+html.dark {
+	color-scheme: dark;
+}
+
+html.dark body {
+	background:linear-gradient(135deg, #020617 0%, #0f172a 100%);
+	color: #e2e8f0;
+}
+
+html.dark .bg-white {
+	background-color: #0f172a !important;
+}
+
+html.dark .bg-gray-50 {
+	background-color: #111827 !important;
+}
+
+html.dark .bg-navy-900 {
+	background:linear-gradient(135deg, #0b1220, #0f172a) !important;
+}
+
+html.dark .border-gray-200,
+html.dark .border-gray-300,
+html.dark .border-gray-400,
+html.dark .border-gray-700 {
+	border-color: #334155 !important;
+}
+
+html.dark .text-navy-900 {
+	color: #f1f5f9 !important;
+}
+
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-gray-700 {
+	color: #94a3b8 !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+	background:linear-gradient(135deg, rgba(11,18,32,0.8), rgba(15,23,42,0.6));
+	color: #e2e8f0;
+	border:1px solid rgba(255,255,255,0.1);
+	transition:all 0.3s ease;
+}
+
+html.dark input:focus,
+html.dark select:focus,
+html.dark textarea:focus {
+	border-color: #ef4444;
+	box-shadow:0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+	color: #64748b;
+}
+
+/* Card shadow and hover effects */
+html.dark .card {
+	transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.dark .card:hover {
+	transform:translateY(-4px);
+}
+
+/* Text selection */
+html.dark ::selection {
+	background:#ef4444;
+	color:#fff;
+}
