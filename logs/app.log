@@ -1,0 +1,988 @@
+2026-05-01 13:10:00,444 INFO: Application startup
+2026-05-01 13:10:00,478 INFO: Background scheduler started successfully
+2026-05-01 13:10:00,506 INFO: Application startup
+2026-05-01 13:10:00,506 INFO: Application startup
+2026-05-01 13:10:00,544 INFO: Background scheduler started successfully
+2026-05-01 13:10:00,544 INFO: Background scheduler started successfully
+2026-05-01 13:10:00,555 INFO: GET / - 127.0.0.1
+2026-05-01 13:10:00,555 INFO: GET / - 127.0.0.1
+2026-05-01 13:10:00,617 INFO: Application startup
+2026-05-01 13:10:00,617 INFO: Application startup
+2026-05-01 13:10:00,617 INFO: Application startup
+2026-05-01 13:10:00,977 INFO: Background scheduler started successfully
+2026-05-01 13:10:00,977 INFO: Background scheduler started successfully
+2026-05-01 13:10:00,977 INFO: Background scheduler started successfully
+2026-05-01 13:10:00,999 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:00,999 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:00,999 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:01,158 INFO: Application startup
+2026-05-01 13:10:01,158 INFO: Application startup
+2026-05-01 13:10:01,158 INFO: Application startup
+2026-05-01 13:10:01,158 INFO: Application startup
+2026-05-01 13:10:01,251 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,251 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,251 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,251 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,258 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:10:01,258 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:10:01,258 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:10:01,258 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:10:01,318 INFO: Application startup
+2026-05-01 13:10:01,318 INFO: Application startup
+2026-05-01 13:10:01,318 INFO: Application startup
+2026-05-01 13:10:01,318 INFO: Application startup
+2026-05-01 13:10:01,318 INFO: Application startup
+2026-05-01 13:10:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,381 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:10:01,381 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:10:01,381 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:10:01,381 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:10:01,381 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:10:01,393 INFO: Application startup
+2026-05-01 13:10:01,393 INFO: Application startup
+2026-05-01 13:10:01,393 INFO: Application startup
+2026-05-01 13:10:01,393 INFO: Application startup
+2026-05-01 13:10:01,393 INFO: Application startup
+2026-05-01 13:10:01,393 INFO: Application startup
+2026-05-01 13:10:01,524 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,524 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,524 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,524 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,524 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,524 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,544 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,544 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,544 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,544 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,544 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,544 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,597 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,597 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,597 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,597 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,597 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,597 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:10:01,611 INFO: Application startup
+2026-05-01 13:10:01,611 INFO: Application startup
+2026-05-01 13:10:01,611 INFO: Application startup
+2026-05-01 13:10:01,611 INFO: Application startup
+2026-05-01 13:10:01,611 INFO: Application startup
+2026-05-01 13:10:01,611 INFO: Application startup
+2026-05-01 13:10:01,611 INFO: Application startup
+2026-05-01 13:10:01,685 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,685 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,685 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,685 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,685 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,685 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,685 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,700 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,700 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,700 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,700 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,700 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,700 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,700 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,810 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,810 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,810 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,810 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,810 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,810 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,810 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,824 INFO: Application startup
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,923 INFO: Background scheduler started successfully
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:01,927 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,559 INFO: Application startup
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,593 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,744 INFO: Application startup
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,786 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,797 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,850 INFO: Application startup
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,883 INFO: Background scheduler started successfully
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:10:03,888 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:01,062 INFO: Application startup
+2026-05-01 13:12:01,107 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,127 INFO: Application startup
+2026-05-01 13:12:01,127 INFO: Application startup
+2026-05-01 13:12:01,169 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,169 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,188 INFO: GET / - 127.0.0.1
+2026-05-01 13:12:01,188 INFO: GET / - 127.0.0.1
+2026-05-01 13:12:01,234 INFO: Application startup
+2026-05-01 13:12:01,234 INFO: Application startup
+2026-05-01 13:12:01,234 INFO: Application startup
+2026-05-01 13:12:01,300 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,300 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,300 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,306 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:01,306 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:01,306 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:01,338 INFO: Application startup
+2026-05-01 13:12:01,338 INFO: Application startup
+2026-05-01 13:12:01,338 INFO: Application startup
+2026-05-01 13:12:01,338 INFO: Application startup
+2026-05-01 13:12:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,376 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,384 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:12:01,384 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:12:01,384 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:12:01,384 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:12:01,425 INFO: Application startup
+2026-05-01 13:12:01,425 INFO: Application startup
+2026-05-01 13:12:01,425 INFO: Application startup
+2026-05-01 13:12:01,425 INFO: Application startup
+2026-05-01 13:12:01,425 INFO: Application startup
+2026-05-01 13:12:01,472 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,472 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,472 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,472 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,472 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,476 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:12:01,476 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:12:01,476 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:12:01,476 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:12:01,476 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:12:01,490 INFO: Application startup
+2026-05-01 13:12:01,490 INFO: Application startup
+2026-05-01 13:12:01,490 INFO: Application startup
+2026-05-01 13:12:01,490 INFO: Application startup
+2026-05-01 13:12:01,490 INFO: Application startup
+2026-05-01 13:12:01,490 INFO: Application startup
+2026-05-01 13:12:01,536 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,536 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,536 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,536 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,536 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,536 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,546 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,546 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,546 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,546 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,546 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,546 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,582 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,582 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,582 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,582 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,582 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,582 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:12:01,590 INFO: Application startup
+2026-05-01 13:12:01,590 INFO: Application startup
+2026-05-01 13:12:01,590 INFO: Application startup
+2026-05-01 13:12:01,590 INFO: Application startup
+2026-05-01 13:12:01,590 INFO: Application startup
+2026-05-01 13:12:01,590 INFO: Application startup
+2026-05-01 13:12:01,590 INFO: Application startup
+2026-05-01 13:12:01,634 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,634 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,634 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,634 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,634 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,634 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,634 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,640 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,640 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,640 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,640 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,640 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,640 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,640 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,672 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,672 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,672 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,672 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,672 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,672 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,672 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,679 INFO: Application startup
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,721 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,732 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,741 INFO: Application startup
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,786 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,858 INFO: Application startup
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,909 INFO: Background scheduler started successfully
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,913 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:01,943 INFO: Application startup
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,006 INFO: Background scheduler started successfully
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:12:02,011 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:16,649 INFO: Application startup
+2026-05-01 13:14:16,678 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,694 INFO: Application startup
+2026-05-01 13:14:16,694 INFO: Application startup
+2026-05-01 13:14:16,738 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,738 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,744 INFO: GET / - 127.0.0.1
+2026-05-01 13:14:16,744 INFO: GET / - 127.0.0.1
+2026-05-01 13:14:16,807 INFO: Application startup
+2026-05-01 13:14:16,807 INFO: Application startup
+2026-05-01 13:14:16,807 INFO: Application startup
+2026-05-01 13:14:16,860 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,860 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,860 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,864 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:16,864 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:16,864 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:16,899 INFO: Application startup
+2026-05-01 13:14:16,899 INFO: Application startup
+2026-05-01 13:14:16,899 INFO: Application startup
+2026-05-01 13:14:16,899 INFO: Application startup
+2026-05-01 13:14:16,941 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,941 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,941 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,941 INFO: Background scheduler started successfully
+2026-05-01 13:14:16,949 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:14:16,949 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:14:16,949 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:14:16,949 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:14:16,984 INFO: Application startup
+2026-05-01 13:14:16,984 INFO: Application startup
+2026-05-01 13:14:16,984 INFO: Application startup
+2026-05-01 13:14:16,984 INFO: Application startup
+2026-05-01 13:14:16,984 INFO: Application startup
+2026-05-01 13:14:17,032 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,032 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,032 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,032 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,032 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,042 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:14:17,042 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:14:17,042 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:14:17,042 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:14:17,042 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:14:17,050 INFO: Application startup
+2026-05-01 13:14:17,050 INFO: Application startup
+2026-05-01 13:14:17,050 INFO: Application startup
+2026-05-01 13:14:17,050 INFO: Application startup
+2026-05-01 13:14:17,050 INFO: Application startup
+2026-05-01 13:14:17,050 INFO: Application startup
+2026-05-01 13:14:17,097 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,097 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,097 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,097 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,097 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,097 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,105 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,105 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,105 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,105 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,105 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,105 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,141 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,141 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,141 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,141 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,141 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,141 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:14:17,149 INFO: Application startup
+2026-05-01 13:14:17,149 INFO: Application startup
+2026-05-01 13:14:17,149 INFO: Application startup
+2026-05-01 13:14:17,149 INFO: Application startup
+2026-05-01 13:14:17,149 INFO: Application startup
+2026-05-01 13:14:17,149 INFO: Application startup
+2026-05-01 13:14:17,149 INFO: Application startup
+2026-05-01 13:14:17,186 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,186 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,186 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,186 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,186 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,186 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,186 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,193 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,193 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,193 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,193 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,193 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,193 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,193 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,239 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,239 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,239 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,239 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,239 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,239 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,239 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,248 INFO: Application startup
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,307 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,312 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,319 INFO: Application startup
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,372 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,464 INFO: Application startup
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,505 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,510 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,552 INFO: Application startup
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,593 INFO: Background scheduler started successfully
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:14:17,606 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:28:26,914 INFO: Application startup
+2026-05-01 13:28:26,955 INFO: Background scheduler started successfully
+2026-05-01 13:28:26,967 INFO: Application startup
+2026-05-01 13:28:26,967 INFO: Application startup
+2026-05-01 13:28:27,011 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,011 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,029 INFO: GET / - 127.0.0.1
+2026-05-01 13:28:27,029 INFO: GET / - 127.0.0.1
+2026-05-01 13:28:27,065 INFO: Application startup
+2026-05-01 13:28:27,065 INFO: Application startup
+2026-05-01 13:28:27,065 INFO: Application startup
+2026-05-01 13:28:27,119 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,119 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,119 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,123 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:28:27,123 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:28:27,123 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:28:27,162 INFO: Application startup
+2026-05-01 13:28:27,162 INFO: Application startup
+2026-05-01 13:28:27,162 INFO: Application startup
+2026-05-01 13:28:27,162 INFO: Application startup
+2026-05-01 13:28:27,206 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,206 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,206 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,206 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,213 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:28:27,213 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:28:27,213 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:28:27,213 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:28:27,249 INFO: Application startup
+2026-05-01 13:28:27,249 INFO: Application startup
+2026-05-01 13:28:27,249 INFO: Application startup
+2026-05-01 13:28:27,249 INFO: Application startup
+2026-05-01 13:28:27,249 INFO: Application startup
+2026-05-01 13:28:27,296 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,296 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,296 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,296 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,296 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,306 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:28:27,306 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:28:27,306 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:28:27,306 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:28:27,306 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:28:27,313 INFO: Application startup
+2026-05-01 13:28:27,313 INFO: Application startup
+2026-05-01 13:28:27,313 INFO: Application startup
+2026-05-01 13:28:27,313 INFO: Application startup
+2026-05-01 13:28:27,313 INFO: Application startup
+2026-05-01 13:28:27,313 INFO: Application startup
+2026-05-01 13:28:27,363 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,363 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,363 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,363 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,363 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,363 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,367 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,367 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,367 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,367 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,367 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,367 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,403 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,403 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,403 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,403 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,403 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,403 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,411 INFO: Application startup
+2026-05-01 13:28:27,411 INFO: Application startup
+2026-05-01 13:28:27,411 INFO: Application startup
+2026-05-01 13:28:27,411 INFO: Application startup
+2026-05-01 13:28:27,411 INFO: Application startup
+2026-05-01 13:28:27,411 INFO: Application startup
+2026-05-01 13:28:27,411 INFO: Application startup
+2026-05-01 13:28:27,463 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,463 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,463 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,463 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,463 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,463 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,463 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,470 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,470 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,470 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,470 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,470 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,470 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,470 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,507 INFO: Application startup
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,557 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,564 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,590 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,603 INFO: Application startup
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,646 INFO: Background scheduler started successfully
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:28:27,653 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:10,281 INFO: Application startup
+2026-05-01 13:29:10,317 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,336 INFO: Application startup
+2026-05-01 13:29:10,336 INFO: Application startup
+2026-05-01 13:29:10,394 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,394 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,401 INFO: GET / - 127.0.0.1
+2026-05-01 13:29:10,401 INFO: GET / - 127.0.0.1
+2026-05-01 13:29:10,443 INFO: Application startup
+2026-05-01 13:29:10,443 INFO: Application startup
+2026-05-01 13:29:10,443 INFO: Application startup
+2026-05-01 13:29:10,498 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,498 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,498 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,502 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:10,502 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:10,502 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:10,551 INFO: Application startup
+2026-05-01 13:29:10,551 INFO: Application startup
+2026-05-01 13:29:10,551 INFO: Application startup
+2026-05-01 13:29:10,551 INFO: Application startup
+2026-05-01 13:29:10,610 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,610 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,610 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,610 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,616 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:29:10,616 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:29:10,616 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:29:10,616 INFO: GET /auth/register - 127.0.0.1
+2026-05-01 13:29:10,652 INFO: Application startup
+2026-05-01 13:29:10,652 INFO: Application startup
+2026-05-01 13:29:10,652 INFO: Application startup
+2026-05-01 13:29:10,652 INFO: Application startup
+2026-05-01 13:29:10,652 INFO: Application startup
+2026-05-01 13:29:10,708 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,708 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,708 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,708 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,708 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,715 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:29:10,715 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:29:10,715 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:29:10,715 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:29:10,715 INFO: GET /dashboard/ - 127.0.0.1
+2026-05-01 13:29:10,725 INFO: Application startup
+2026-05-01 13:29:10,725 INFO: Application startup
+2026-05-01 13:29:10,725 INFO: Application startup
+2026-05-01 13:29:10,725 INFO: Application startup
+2026-05-01 13:29:10,725 INFO: Application startup
+2026-05-01 13:29:10,725 INFO: Application startup
+2026-05-01 13:29:10,764 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,764 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,764 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,764 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,764 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,764 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,772 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,772 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,772 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,772 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,772 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,772 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,811 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,811 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,811 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,811 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,811 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,811 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,817 INFO: Application startup
+2026-05-01 13:29:10,817 INFO: Application startup
+2026-05-01 13:29:10,817 INFO: Application startup
+2026-05-01 13:29:10,817 INFO: Application startup
+2026-05-01 13:29:10,817 INFO: Application startup
+2026-05-01 13:29:10,817 INFO: Application startup
+2026-05-01 13:29:10,817 INFO: Application startup
+2026-05-01 13:29:10,852 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,852 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,852 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,852 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,852 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,852 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,852 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,858 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,858 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,858 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,858 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,858 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,858 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,858 INFO: POST /auth/login - 127.0.0.1
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,904 INFO: Application startup
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,948 INFO: Background scheduler started successfully
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,956 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:10,997 INFO: POST /auth/register - 127.0.0.1
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,004 INFO: Application startup
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,044 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,051 INFO: GET /auth/logout - 127.0.0.1
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,059 INFO: Application startup
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,101 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,200 INFO: Application startup
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,251 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,262 INFO: GET /nonexistent - 127.0.0.1
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,296 INFO: Application startup
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,340 INFO: Background scheduler started successfully
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1
+2026-05-01 13:29:11,351 INFO: GET /auth/login - 127.0.0.1

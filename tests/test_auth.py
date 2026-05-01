@@ -1,6 +1,7 @@
 import pytest
 from app import create_app
 from config import Config
+import routes.auth as auth_routes
 
 class TestConfig(Config):
     TESTING = True
@@ -52,6 +53,26 @@ def test_login_validation(client):
         'password': 'password123'
     })
     assert response.status_code == 200
+
+
+def test_login_shows_auth_error(client, monkeypatch):
+    """Test that login surfaces backend authentication errors"""
+    monkeypatch.setattr(
+        auth_routes.SupabaseService,
+        'login_user',
+        staticmethod(lambda email, password: {
+            'success': False,
+            'error': 'Authentication service is unavailable. Please check your backend connection.'
+        })
+    )
+
+    response = client.post('/auth/login', data={
+        'email': 'user@example.com',
+        'password': 'password123'
+    }, follow_redirects=True)
+
+    assert response.status_code == 200
+    assert b'Authentication service is unavailable' in response.data
 
 def test_register_validation(client):
     """Test registration form validation"""

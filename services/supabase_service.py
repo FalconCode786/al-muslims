@@ -2,7 +2,159 @@
 # COMPLETE SUPABASE SERVICE WITH ALL QUERIES
 # ============================================
 
-# Add to services/supabase_service.py
+import os
+from typing import Dict, Optional, Any
+from models.user import User
+from datetime import datetime
+import uuid
+import logging
+
+try:
+    from supabase import create_client, Client
+except ImportError:
+    create_client = None
+    Client = Any
+
+logger = logging.getLogger(__name__)
+
+class SupabaseService:
+    """Main Supabase service for authentication and database operations"""
+    
+    _client: Optional[Client] = None
+    
+    @classmethod
+    def get_client(cls) -> Client:
+        """Get or create Supabase client"""
+        if cls._client is None:
+            supabase_url = os.getenv('SUPABASE_URL')
+            supabase_key = os.getenv('SUPABASE_KEY')
+            
+            if not supabase_url or not supabase_key:
+                raise ValueError("Missing Supabase credentials in environment variables")
+
+            if create_client is None:
+                raise ImportError("supabase package is not installed")
+            
+            cls._client = create_client(supabase_url, supabase_key)
+        
+        return cls._client
+    
+    @staticmethod
+    def login_user(email: str, password: str) -> Dict:
+        """Login user with email and password"""
+        try:
+            client = SupabaseService.get_client()
+            response = client.auth.sign_in_with_password({
+                'email': email,
+                'password': password
+            })
+            
+            if response and response.user:
+                user_data = SupabaseService.get_user_by_id(response.user.id)
+                return {
+                    'success': True,
+                    'user': user_data,
+                    'access_token': response.session.access_token if response.session else None
+                }
+            
+            return {'success': False, 'error': 'Invalid credentials'}
+        
+        except (ImportError, ValueError) as e:
+            logger.warning(f"Login unavailable: {str(e)}")
+            return {
+                'success': False,
+                'error': 'Authentication service is unavailable. Please check your backend connection.'
+            }
+        except Exception as e:
+            logger.error(f"Login error: {str(e)}")
+            return {
+                'success': False,
+                'error': 'Invalid email or password. Please try again.'
+            }
+    
+    @staticmethod
+    def register_user(email: str, password: str, full_name: str) -> Dict:
+        """Register new user"""
+        try:
+            client = SupabaseService.get_client()
+            
+            # Sign up with auth
+            response = client.auth.sign_up({
+                'email': email,
+                'password': password
+            })
+            
+            if response and response.user:
+                user_id = response.user.id
+                
+                # Create user profile
+                profile_data = {
+                    'id': user_id,
+                    'email': email,
+                    'full_name': full_name,
+                    'is_active': True,
+                    'is_admin': False,
+                    'created_at': datetime.now().isoformat()
+                }
+                
+                client.table('profiles').insert(profile_data).execute()
+                
+                return {'success': True, 'user_id': user_id}
+            
+            return {'success': False, 'error': 'Registration failed'}
+        
+        except (ImportError, ValueError) as e:
+            logger.warning(f"Registration unavailable: {str(e)}")
+            return {
+                'success': False,
+                'error': 'Registration service is unavailable. Please check your backend connection.'
+            }
+        except Exception as e:
+            logger.error(f"Registration error: {str(e)}")
+            return {'success': False, 'error': str(e)}
+    
+    @staticmethod
+    def logout_user(access_token: str) -> Dict:
+        """Logout user"""
+        try:
+            client = SupabaseService.get_client()
+            client.auth.sign_out()
+            return {'success': True}
+        except Exception as e:
+            logger.error(f"Logout error: {str(e)}")
+            return {'success': False, 'error': str(e)}
+    
+    @staticmethod
+    def get_user_by_id(user_id: str) -> Optional[User]:
+        """Get user from database by ID"""
+        try:
+            client = SupabaseService.get_client()
+            response = client.table('profiles') \
+                .select('*') \
+                .eq('id', user_id) \
+                .single() \
+                .execute()
+            
+            if response and response.data:
+                data = response.data
+                return User(
+                    id=data.get('id'),
+                    email=data.get('email'),
+                    full_name=data.get('full_name'),
+                    phone=data.get('phone'),
+                    address=data.get('address'),
+                    cnic=data.get('cnic'),
+                    disco_region=data.get('disco_region'),
+                    is_active=data.get('is_active', True),
+                    is_admin=data.get('is_admin', False)
+                )
+            
+            return None
+        
+        except Exception as e:
+            logger.error(f"Error getting user {user_id}: {str(e)}")
+            return None
+
 
 class SupabaseQueries:
     """All database queries for Almuslim platform"""

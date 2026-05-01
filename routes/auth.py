@@ -50,7 +50,7 @@ def login():
                 return redirect(next_page)
             return redirect(url_for('dashboard.index'))
         else:
-            flash('Invalid email or password. Please try again.', 'danger')
+            flash(result.get('error', 'Invalid email or password. Please try again.'), 'danger')
     
     return render_template('auth/login.html')
 
@@ -92,7 +92,7 @@ def register():
             flash('Registration successful! Please log in to continue.', 'success')
             return redirect(url_for('auth.login'))
         else:
-            flash('Registration failed. This email may already be registered.', 'danger')
+            flash(result.get('error', 'Registration failed. This email may already be registered.'), 'danger')
     
     return render_template('auth/register.html')
 

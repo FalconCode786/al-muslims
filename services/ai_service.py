@@ -3,12 +3,25 @@ import numpy as np
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
 import logging
-from prophet import Prophet
-import openmeteo_requests
-import requests_cache
-from retry_requests import retry
 import json
 import os
+
+try:
+    from prophet import Prophet
+except ImportError:
+    Prophet = None
+
+try:
+    import openmeteo_requests
+except ImportError:
+    openmeteo_requests = None
+
+try:
+    import requests_cache
+    from retry_requests import retry
+except ImportError:
+    requests_cache = None
+    retry = None
 
 logger = logging.getLogger(__name__)
 
@@ -16,9 +29,13 @@ class AIService:
     """AI and Predictive Analytics Service for Almuslim"""
     
     def __init__(self):
-        self.cache_session = requests_cache.CachedSession('.cache', expire_after=3600)
-        self.retry_session = retry(self.cache_session, retries=5, backoff_factor=0.2)
-        self.openmeteo = openmeteo_requests.Client(session=self.retry_session)
+        self.cache_session = None
+        self.retry_session = None
+        self.openmeteo = None
+        if requests_cache and retry and openmeteo_requests:
+            self.cache_session = requests_cache.CachedSession('.cache', expire_after=3600)
+            self.retry_session = retry(self.cache_session, retries=5, backoff_factor=0.2)
+            self.openmeteo = openmeteo_requests.Client(session=self.retry_session)
         self.model_path = 'models/saved/'
         os.makedirs(self.model_path, exist_ok=True)
         
@@ -45,6 +62,12 @@ class AIService:
     def fetch_weather_forecast(self, latitude: float, longitude: float, days: int = 7) -> Dict:
         """Fetch weather forecast data from Open-Meteo API"""
         try:
+            if not self.openmeteo:
+                return {
+                    'success': False,
+                    'error': 'Weather forecasting service is unavailable in this environment.'
+                }
+
             params = {
                 "latitude": latitude,
                 "longitude": longitude,
@@ -114,6 +137,10 @@ class AIService:
     def train_solar_forecast_model(self, historical_data: pd.DataFrame) -> Optional[Prophet]:
         """Train Prophet model for solar generation forecasting"""
         try:
+            if Prophet is None:
+                logger.warning("Prophet is unavailable; skipping model training")
+                return None
+
             if historical_data.empty or len(historical_data) < 24:
                 logger.warning("Insufficient historical data for model training")
                 return None
